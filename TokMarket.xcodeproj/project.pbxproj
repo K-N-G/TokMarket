@@ -21,6 +21,12 @@
 		B3972DE62B485CEA0005160D /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3972DE52B485CEA0005160D /* History.storyboard */; };
 		B3972DEB2B485F3F0005160D /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3972DEA2B485F3E0005160D /* Dashboard.storyboard */; };
 		B3972DEF2B4861970005160D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3972DEE2B4861970005160D /* Colors.xcassets */; };
+		B3972DF12B4864E70005160D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3972DF02B4864E70005160D /* InitialViewController.swift */; };
+		B3972DF32B486C480005160D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3972DF22B486C480005160D /* MainTabBarController.swift */; };
+		B3972DF52B4875D60005160D /* HomeDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3972DF42B4875D60005160D /* HomeDashboardViewController.swift */; };
+		B3972DF92B4876A80005160D /* HomeHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3972DF82B4876A80005160D /* HomeHistoryViewController.swift */; };
+		B3972DFC2B4876D90005160D /* HomeStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3972DFB2B4876D90005160D /* HomeStatisticsViewController.swift */; };
+		B3972DFF2B4877230005160D /* HomeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3972DFE2B4877230005160D /* HomeSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +65,12 @@
 		B3972DE52B485CEA0005160D /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		B3972DEA2B485F3E0005160D /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		B3972DEE2B4861970005160D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		B3972DF02B4864E70005160D /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		B3972DF22B486C480005160D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		B3972DF42B4875D60005160D /* HomeDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardViewController.swift; sourceTree = "<group>"; };
+		B3972DF82B4876A80005160D /* HomeHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHistoryViewController.swift; sourceTree = "<group>"; };
+		B3972DFB2B4876D90005160D /* HomeStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatisticsViewController.swift; sourceTree = "<group>"; };
+		B3972DFE2B4877230005160D /* HomeSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +202,7 @@
 		B3972DE72B485DF00005160D /* SettingsControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B3972DFD2B4877120005160D /* HomeSettings */,
 			);
 			path = SettingsControllers;
 			sourceTree = "<group>";
@@ -197,6 +210,7 @@
 		B3972DE82B485E070005160D /* StatisticsControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B3972DFA2B4876C80005160D /* HomeStatistics */,
 			);
 			path = StatisticsControllers;
 			sourceTree = "<group>";
@@ -204,6 +218,7 @@
 		B3972DE92B485E1E0005160D /* HistoryControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B3972DF72B4875F30005160D /* HomeHistory */,
 			);
 			path = HistoryControllers;
 			sourceTree = "<group>";
@@ -211,6 +226,7 @@
 		B3972DEC2B485FBE0005160D /* DashboardControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B3972DF62B4875DD0005160D /* HomeDashboard */,
 			);
 			path = DashboardControllers;
 			sourceTree = "<group>";
@@ -218,8 +234,42 @@
 		B3972DED2B485FE70005160D /* MainControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B3972DF02B4864E70005160D /* InitialViewController.swift */,
+				B3972DF22B486C480005160D /* MainTabBarController.swift */,
 			);
 			path = MainControllers;
+			sourceTree = "<group>";
+		};
+		B3972DF62B4875DD0005160D /* HomeDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				B3972DF42B4875D60005160D /* HomeDashboardViewController.swift */,
+			);
+			path = HomeDashboard;
+			sourceTree = "<group>";
+		};
+		B3972DF72B4875F30005160D /* HomeHistory */ = {
+			isa = PBXGroup;
+			children = (
+				B3972DF82B4876A80005160D /* HomeHistoryViewController.swift */,
+			);
+			path = HomeHistory;
+			sourceTree = "<group>";
+		};
+		B3972DFA2B4876C80005160D /* HomeStatistics */ = {
+			isa = PBXGroup;
+			children = (
+				B3972DFB2B4876D90005160D /* HomeStatisticsViewController.swift */,
+			);
+			path = HomeStatistics;
+			sourceTree = "<group>";
+		};
+		B3972DFD2B4877120005160D /* HomeSettings */ = {
+			isa = PBXGroup;
+			children = (
+				B3972DFE2B4877230005160D /* HomeSettingsViewController.swift */,
+			);
+			path = HomeSettings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,9 +408,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3972DFC2B4876D90005160D /* HomeStatisticsViewController.swift in Sources */,
 				B3972DE02B485B410005160D /* Storyboard.swift in Sources */,
 				B3972D6F2B44B15A0005160D /* AppDelegate.swift in Sources */,
+				B3972DF52B4875D60005160D /* HomeDashboardViewController.swift in Sources */,
+				B3972DF32B486C480005160D /* MainTabBarController.swift in Sources */,
+				B3972DFF2B4877230005160D /* HomeSettingsViewController.swift in Sources */,
+				B3972DF92B4876A80005160D /* HomeHistoryViewController.swift in Sources */,
 				B3972D712B44B15A0005160D /* SceneDelegate.swift in Sources */,
+				B3972DF12B4864E70005160D /* InitialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
