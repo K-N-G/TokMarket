@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B343FC232B4979F900B98D45 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B343FC222B4979F900B98D45 /* Alamofire */; };
+		B343FC262B497E8600B98D45 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B343FC252B497E8600B98D45 /* JGProgressHUD */; };
 		B3972D6F2B44B15A0005160D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3972D6E2B44B15A0005160D /* AppDelegate.swift */; };
 		B3972D712B44B15A0005160D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3972D702B44B15A0005160D /* SceneDelegate.swift */; };
 		B3972D762B44B15A0005160D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3972D742B44B15A0005160D /* Main.storyboard */; };
@@ -78,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B343FC262B497E8600B98D45 /* JGProgressHUD in Frameworks */,
+				B343FC232B4979F900B98D45 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +292,10 @@
 			dependencies = (
 			);
 			name = TokMarket;
+			packageProductDependencies = (
+				B343FC222B4979F900B98D45 /* Alamofire */,
+				B343FC252B497E8600B98D45 /* JGProgressHUD */,
+			);
 			productName = TokMarket;
 			productReference = B3972D6B2B44B15A0005160D /* TokMarket.app */;
 			productType = "com.apple.product-type.application";
@@ -360,6 +368,12 @@
 				Base,
 			);
 			mainGroup = B3972D622B44B1590005160D;
+			packageReferences = (
+				B343FC212B4979F900B98D45 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B343FC242B497E8600B98D45 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				B343FC272B497F7600B98D45 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				B343FC282B49805300B98D45 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = B3972D6C2B44B15A0005160D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -767,6 +781,54 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B343FC212B4979F900B98D45 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+		B343FC242B497E8600B98D45 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+		B343FC272B497F7600B98D45 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B343FC282B49805300B98D45 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B343FC222B4979F900B98D45 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B343FC212B4979F900B98D45 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		B343FC252B497E8600B98D45 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B343FC242B497E8600B98D45 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B3972D632B44B1590005160D /* Project object */;
 }
