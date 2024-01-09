@@ -8,6 +8,7 @@
 import UIKit
 
 class HomeDashboardTableViewCell: UITableViewCell {
+    @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var hourPeriodLabel: UILabel!
     @IBOutlet weak var volumeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!

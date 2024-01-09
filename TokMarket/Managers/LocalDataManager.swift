@@ -80,38 +80,5 @@ final class LocalDataManager {
         return hourlyInfo
     }
     
-    static func getMinPriceTodayBy(energyPrice: EnergyPrice) -> Double? {
-        var minPrice = 10000.0
-        for hourlyInfo in energyPrice.hourlyData {
-            if let price = hourlyInfo.data?.bgn,
-               minPrice > price {
-                minPrice = price
-            }
-        }
-        return Double(minPrice.formatTwoSymbol)
-    }
-    
-    static func getMaxPriceTodayBy(energyPrice: EnergyPrice) -> Double? {
-        var maxPrice = -100.0
-        for hourlyInfo in energyPrice.hourlyData {
-            if let price = hourlyInfo.data?.bgn,
-               maxPrice < price {
-                maxPrice = price
-            }
-        }
-        return Double(maxPrice.formatTwoSymbol)
-    }
-    
-    static func getAveragePriceTodayBy(energyPrice: EnergyPrice) -> Double? {
-        var count = 0.0
-        var prices = 0.0
-        for hourlyInfo in energyPrice.hourlyData {
-            if let price = hourlyInfo.data?.bgn {
-                count += 1.0
-                prices += price
-            }
-        }
-        return Double(Double(prices / count).formatTwoSymbol)
-    }
 }
 

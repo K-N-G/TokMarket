@@ -18,6 +18,11 @@
 		B343FC372B4B58E600B98D45 /* HomeDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B343FC362B4B58E600B98D45 /* HomeDashboardTableViewCell.swift */; };
 		B343FC392B4C172600B98D45 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B343FC382B4C172600B98D45 /* Double.swift */; };
 		B343FC3B2B4D6B9C00B98D45 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B343FC3A2B4D6B9C00B98D45 /* Notification.swift */; };
+		B34507482B4D73CD003A0FD3 /* HomeDashboardStatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34507472B4D73CD003A0FD3 /* HomeDashboardStatisticsTableViewCell.swift */; };
+		B345074A2B4D9864003A0FD3 /* HomeDashboardAdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34507492B4D9864003A0FD3 /* HomeDashboardAdTableViewCell.swift */; };
+		B345074C2B4DA1D0003A0FD3 /* CalculationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B345074B2B4DA1CF003A0FD3 /* CalculationManager.swift */; };
+		B345074F2B4DD8F3003A0FD3 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B345074E2B4DD8F3003A0FD3 /* UserData.swift */; };
+		B34507522B4DD97F003A0FD3 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34507512B4DD97F003A0FD3 /* Enums.swift */; };
 		B3972D6F2B44B15A0005160D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3972D6E2B44B15A0005160D /* AppDelegate.swift */; };
 		B3972D712B44B15A0005160D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3972D702B44B15A0005160D /* SceneDelegate.swift */; };
 		B3972D762B44B15A0005160D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3972D742B44B15A0005160D /* Main.storyboard */; };
@@ -65,6 +70,11 @@
 		B343FC362B4B58E600B98D45 /* HomeDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardTableViewCell.swift; sourceTree = "<group>"; };
 		B343FC382B4C172600B98D45 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		B343FC3A2B4D6B9C00B98D45 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		B34507472B4D73CD003A0FD3 /* HomeDashboardStatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardStatisticsTableViewCell.swift; sourceTree = "<group>"; };
+		B34507492B4D9864003A0FD3 /* HomeDashboardAdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardAdTableViewCell.swift; sourceTree = "<group>"; };
+		B345074B2B4DA1CF003A0FD3 /* CalculationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationManager.swift; sourceTree = "<group>"; };
+		B345074E2B4DD8F3003A0FD3 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		B34507512B4DD97F003A0FD3 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		B3972D6B2B44B15A0005160D /* TokMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3972D6E2B44B15A0005160D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3972D702B44B15A0005160D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +136,22 @@
 				B343FC2A2B4B30F600B98D45 /* EnergyPrice.swift */,
 			);
 			path = RealmModels;
+			sourceTree = "<group>";
+		};
+		B345074D2B4DD8E0003A0FD3 /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				B345074E2B4DD8F3003A0FD3 /* UserData.swift */,
+			);
+			path = UserData;
+			sourceTree = "<group>";
+		};
+		B34507502B4DD969003A0FD3 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				B34507512B4DD97F003A0FD3 /* Enums.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		B3972D622B44B1590005160D = {
@@ -212,6 +238,7 @@
 			children = (
 				B343FC2C2B4B33B700B98D45 /* PriceManager.swift */,
 				B343FC322B4B3CF000B98D45 /* LocalDataManager.swift */,
+				B345074B2B4DA1CF003A0FD3 /* CalculationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -230,6 +257,8 @@
 		B3972DDE2B485ADB0005160D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B34507502B4DD969003A0FD3 /* Enums */,
+				B345074D2B4DD8E0003A0FD3 /* UserData */,
 				B343FC292B4B30D800B98D45 /* RealmModels */,
 			);
 			path = Models;
@@ -281,6 +310,8 @@
 			children = (
 				B3972DF42B4875D60005160D /* HomeDashboardViewController.swift */,
 				B343FC362B4B58E600B98D45 /* HomeDashboardTableViewCell.swift */,
+				B34507472B4D73CD003A0FD3 /* HomeDashboardStatisticsTableViewCell.swift */,
+				B34507492B4D9864003A0FD3 /* HomeDashboardAdTableViewCell.swift */,
 			);
 			path = HomeDashboard;
 			sourceTree = "<group>";
@@ -461,17 +492,22 @@
 				B3972DFC2B4876D90005160D /* HomeStatisticsViewController.swift in Sources */,
 				B3972DE02B485B410005160D /* Storyboard.swift in Sources */,
 				B3972D6F2B44B15A0005160D /* AppDelegate.swift in Sources */,
+				B34507522B4DD97F003A0FD3 /* Enums.swift in Sources */,
 				B343FC3B2B4D6B9C00B98D45 /* Notification.swift in Sources */,
 				B3972DF52B4875D60005160D /* HomeDashboardViewController.swift in Sources */,
 				B3972DF32B486C480005160D /* MainTabBarController.swift in Sources */,
 				B343FC332B4B3CF000B98D45 /* LocalDataManager.swift in Sources */,
 				B3972DFF2B4877230005160D /* HomeSettingsViewController.swift in Sources */,
 				B3972DF92B4876A80005160D /* HomeHistoryViewController.swift in Sources */,
+				B345074A2B4D9864003A0FD3 /* HomeDashboardAdTableViewCell.swift in Sources */,
+				B34507482B4D73CD003A0FD3 /* HomeDashboardStatisticsTableViewCell.swift in Sources */,
 				B3972D712B44B15A0005160D /* SceneDelegate.swift in Sources */,
+				B345074C2B4DA1D0003A0FD3 /* CalculationManager.swift in Sources */,
 				B3972DF12B4864E70005160D /* InitialViewController.swift in Sources */,
 				B343FC2B2B4B30F600B98D45 /* EnergyPrice.swift in Sources */,
 				B343FC372B4B58E600B98D45 /* HomeDashboardTableViewCell.swift in Sources */,
 				B343FC392B4C172600B98D45 /* Double.swift in Sources */,
+				B345074F2B4DD8F3003A0FD3 /* UserData.swift in Sources */,
 				B343FC2D2B4B33B700B98D45 /* PriceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

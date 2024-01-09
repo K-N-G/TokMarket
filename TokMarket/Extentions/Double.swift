@@ -22,4 +22,8 @@ extension Double {
         return String(format: "%.2f", self)
     }
     
+    var formatFiveSymbol: String {
+        return String(format: "%.5f", self)
+    }
+    
 }
