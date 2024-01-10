@@ -69,6 +69,16 @@ final class CalculationManager {
         return Double(Double(prices / count).formatTwoSymbol)
     }
     
+    static func getTotalVolumeBy(energyPrice: EnergyPrice) -> Double? {
+        var totalVolume = 0.0
+        for hourlyInfo in energyPrice.hourlyData {
+            if let volume = hourlyInfo.data?.volume {
+                totalVolume += volume
+            }
+        }
+        return Double(Double(totalVolume).formatTwoSymbol)
+    }
+    
     static func getPeriodBy(time: String) -> String {
         var period = "---"
         switch time {

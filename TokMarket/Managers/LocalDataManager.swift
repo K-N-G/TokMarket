@@ -47,7 +47,7 @@ final class LocalDataManager {
     
     static func fetchEnergyPrices() -> [EnergyPrice]? {
         try? LocalDataManager.realm.write {
-            return Array(LocalDataManager.realm.objects(EnergyPrice.self))
+            return Array(LocalDataManager.realm.objects(EnergyPrice.self)).reversed()
         }
     }
     
