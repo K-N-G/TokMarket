@@ -13,10 +13,28 @@ class HomeHistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.setObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.setObserver(self, selector: #selector(updateScreen), name: .updateScreen, object: nil)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupScreen()
+    }
+    
+    @objc func applicationDidBecomeActive(notification: NSNotification) {
+        print("applicationDidBecomeActive - HomeHistoryViewController")
+        setupScreen()
+    }
+    
+    @objc func updateScreen(notification: NSNotification) {
+        print("updateScreen - HomeHistoryViewController")
+        setupScreen()
+    }
+    
+    func setupScreen() {
         self.energyPrices = LocalDataManager.fetchEnergyPrices() ?? []
+        self.tableView.reloadData()
     }
 }
 
@@ -47,5 +65,10 @@ extension HomeHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         return UITableViewCell()
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let historyDetailsViewController = UIStoryboard.history.instantiateViewController(identifier: "HistoryDetailsViewController") as? HistoryDetailsViewController {
+            historyDetailsViewController.todayEnergyPrice = self.energyPrices[indexPath.row]
+            self.navigationController?.pushViewController(historyDetailsViewController, animated: true)
+        }
+    }
 }

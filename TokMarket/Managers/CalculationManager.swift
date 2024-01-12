@@ -9,6 +9,8 @@ import Foundation
 
 final class CalculationManager {
     
+    static let peakHours = ["08:00:00", "09:00:00", "10:00:00", "11:00:00", "12:00:00", "13:00:00", "14:00:00", "15:00:00", "16:00:00", "17:00:00", "18:00:00", "19:00:00"]
+    
     static func getMinPriceTodayBy(energyPrice: EnergyPrice) -> Double? {
         var minPrice = 10000.0
         for hourlyInfo in energyPrice.hourlyData {
@@ -64,6 +66,36 @@ final class CalculationManager {
             if let price = hourlyInfo.data?.bgn {
                 count += 1.0
                 prices += price
+            }
+        }
+        return Double(Double(prices / count).formatTwoSymbol)
+    }
+    
+    static func getAveragePricePeakBy(energyPrice: EnergyPrice) -> Double? {
+        var count = 0.0
+        var prices = 0.0
+        for hourlyInfo in energyPrice.hourlyData {
+            if peakHours.contains(hourlyInfo.time) {
+                if let price = hourlyInfo.data?.bgn {
+                    count += 1.0
+                    prices += price
+                }
+            }
+        }
+        return Double(Double(prices / count).formatTwoSymbol)
+    }
+    
+    static func getAveragePriceOffPeakBy(energyPrice: EnergyPrice) -> Double? {
+        var count = 0.0
+        var prices = 0.0
+        for hourlyInfo in energyPrice.hourlyData {
+            
+            if !(peakHours.contains(hourlyInfo.time)) {
+                
+                if let price = hourlyInfo.data?.bgn {
+                    count += 1.0
+                    prices += price
+                }
             }
         }
         return Double(Double(prices / count).formatTwoSymbol)

@@ -27,4 +27,14 @@ final class UserData {
             UserDefaults.standard.synchronize()
         }
     }
+    
+    static var currentDashboardHour: String {
+        get {
+            return UserDefaults.standard.string(forKey: "currentDashboardHour") ?? "00:00:00"
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "currentDashboardHour")
+            UserDefaults.standard.synchronize()
+        }
+    }
 }

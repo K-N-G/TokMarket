@@ -1,51 +1,35 @@
 //
-//  HomeDashboardViewController.swift
+//  HistoryDetailsViewController.swift
 //  TokMarket
 //
-//  Created by KNG on 5.01.24.
+//  Created by KNG on 10.01.24.
 //
 
 import UIKit
 
-class HomeDashboardViewController: UIViewController {
+class HistoryDetailsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var currentDateTimeLabel: UILabel!
-    @IBOutlet weak var currentPriceValueLabel: UILabel!
     
     var todayEnergyPrice: EnergyPrice?
     var rows: [DashboardRow] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.setObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
-        NotificationCenter.default.setObserver(self, selector: #selector(updateScreen), name: .updateScreen, object: nil)
+        self.title = todayEnergyPrice?.date ?? ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.todayEnergyPrice = LocalDataManager.fetchEnergyPrice()
+        super.viewWillAppear(animated)
         setupScreen()
     }
-    
-    @objc func applicationDidBecomeActive(notification: NSNotification) {
-        print("applicationDidBecomeActive - HomeDashboardViewController")
-        setupScreen()
-    }
-    
-    @objc func updateScreen(notification: NSNotification) {
-        print("updateScreen - HomeDashboardViewController")
-        setupScreen()
-    }
-    
     
     func setupScreen() {
         guard let todayEnergyPrice = self.todayEnergyPrice else {
             return
         }
         self.rows = []
-        self.currentDateTimeLabel.text = "\(LocalDataManager.getCurrentDate())  \(CalculationManager.getPeriodBy(time: LocalDataManager.getCurrentHour()))"
-        self.currentPriceValueLabel.text = "\(LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice)?.bgn ?? 0.00) \(UserData.defaultCurrency.rawValue)"
         self.rows = [
-            DashboardRow(titleName: "", 
+            DashboardRow(titleName: "",
                          type: .statistics,
                          leftTitle: "Price per \(MeasuringUnits.kWh.rawValue)",
                          leftValue: "\(((LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice)?.bgn ?? 0.00) / 1000).formatFiveSymbol)",
@@ -81,10 +65,7 @@ class HomeDashboardViewController: UIViewController {
                          leftValue: "\(CalculationManager.getTotalVolumeBy(energyPrice: todayEnergyPrice) ?? 0.00)",
                          leftValueType: " \(MeasuringUnits.mWh.rawValue)",
                          leftdescriptionIsVisible: false,
-                         rightTitle: "Volume",
-                         rightValue: "\(LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice)?.volume ?? 0.00)",
-                         rightValueType: " \(MeasuringUnits.mWh.rawValue)",
-                         rightdescriptionIsVisible: false),
+                         rightViewIsVisible: true),
             DashboardRow(titleName: "Ad banner", type: .ad)
             
         ]
@@ -106,7 +87,7 @@ class HomeDashboardViewController: UIViewController {
     }
 }
 
-extension HomeDashboardViewController: UITableViewDelegate, UITableViewDataSource {
+extension HistoryDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.rows.count
     }
@@ -136,13 +117,6 @@ extension HomeDashboardViewController: UITableViewDelegate, UITableViewDataSourc
                 homeDashboardTableViewCell.hourPeriodLabel.text = "Period: \(CalculationManager.getPeriodBy(time: row.titleName))"
                 homeDashboardTableViewCell.volumeValueLabel.text = "\(row.hourlyInfo?.volume ?? 0.0)"
                 homeDashboardTableViewCell.priceValueLabel.text = "\(row.hourlyInfo?.bgn ?? 0.0)"
-                if row.titleName == LocalDataManager.getCurrentHour() {
-                    homeDashboardTableViewCell.cellView.backgroundColor = UIColor(named: "currentCell")
-                    UserData.currentDashboardHour = row.titleName
-                } else {
-                    homeDashboardTableViewCell.cellView.backgroundColor = UIColor(named: "kindaWhite")
-                }
-                homeDashboardTableViewCell.cellView.backgroundColor = row.titleName == LocalDataManager.getCurrentHour() ? UIColor(named: "currentCell") : UIColor(named: "kindaWhite")
                 return homeDashboardTableViewCell
             }
         case .ad:
@@ -156,7 +130,7 @@ extension HomeDashboardViewController: UITableViewDelegate, UITableViewDataSourc
     }
 }
 
-extension HomeDashboardViewController {
+extension HistoryDetailsViewController {
     struct DashboardRow {
         enum RowType {
             case statistics
@@ -181,3 +155,4 @@ extension HomeDashboardViewController {
         var hourlyInfo: HourlyInfo?
     }
 }
+

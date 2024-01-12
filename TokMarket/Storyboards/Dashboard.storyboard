@@ -122,7 +122,7 @@
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" name="xlightGray"/>
+                                                            <color key="value" name="xdarkGray"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                                             <real key="value" value="16"/>
@@ -148,20 +148,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeDashboardStatisticsTableViewCell" id="ZmD-zG-zJP" customClass="HomeDashboardStatisticsTableViewCell" customModule="TokMarket" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="134" width="393" height="94"/>
+                                        <rect key="frame" x="0.0" y="134" width="393" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZmD-zG-zJP" id="dOK-6d-I4e">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="94"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hqu-E7-u9L">
-                                                    <rect key="frame" x="16" y="0.0" width="361" height="86"/>
+                                                    <rect key="frame" x="16" y="0.0" width="361" height="88"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXR-GT-NR4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="86"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="88"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="yjr-tK-7ct">
-                                                                    <rect key="frame" x="16" y="8" width="144.66666666666666" height="70"/>
+                                                                    <rect key="frame" x="16" y="8" width="144.66666666666666" height="72"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min price" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jf0-Fk-XWO">
                                                                             <rect key="frame" x="0.0" y="0.0" width="71.666666666666671" height="22"/>
@@ -204,10 +204,7 @@
                                                                             </subviews>
                                                                         </stackView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Period: 16 - 17" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMK-tL-uv2">
-                                                                            <rect key="frame" x="0.0" y="54" width="81.333333333333329" height="16"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="16" id="TBo-m1-861"/>
-                                                                            </constraints>
+                                                                            <rect key="frame" x="0.0" y="54" width="81.333333333333329" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <color key="textColor" name="xdarkGray"/>
                                                                             <nil key="highlightedColor"/>
@@ -230,7 +227,7 @@
                                                                     <real key="value" value="1"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                    <color key="value" name="xlightGray"/>
+                                                                    <color key="value" name="xdarkGray"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                                                     <real key="value" value="16"/>
@@ -238,10 +235,10 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omE-35-t4O">
-                                                            <rect key="frame" x="184.66666666666663" y="0.0" width="176.33333333333337" height="86"/>
+                                                            <rect key="frame" x="184.66666666666663" y="0.0" width="176.33333333333337" height="88"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ag0-uK-izR">
-                                                                    <rect key="frame" x="16" y="8" width="144.33333333333334" height="70"/>
+                                                                    <rect key="frame" x="16" y="8" width="144.33333333333334" height="72"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max price" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yO-0w-0RC">
                                                                             <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="22"/>
@@ -253,10 +250,10 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTc-4T-U26">
-                                                                            <rect key="frame" x="0.0" y="26" width="144.33333333333334" height="24"/>
+                                                                            <rect key="frame" x="0.0" y="26" width="144.33333333333334" height="26"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="555.55" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tD-G3-9We">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="68.333333333333329" height="24"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="68.333333333333329" height="26"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="26" id="40e-fg-0lo"/>
                                                                                     </constraints>
@@ -265,10 +262,10 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dI7-Q0-Uyd">
-                                                                                    <rect key="frame" x="68.333333333333343" y="0.0" width="76" height="24"/>
+                                                                                    <rect key="frame" x="68.333333333333343" y="0.0" width="76" height="26"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" / mWh" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEJ-u1-Qhr">
-                                                                                            <rect key="frame" x="0.0" y="9" width="76" height="12"/>
+                                                                                            <rect key="frame" x="0.0" y="11" width="76" height="12"/>
                                                                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="10"/>
                                                                                             <color key="textColor" name="xdarkGray"/>
                                                                                             <nil key="highlightedColor"/>
@@ -284,10 +281,7 @@
                                                                             </subviews>
                                                                         </stackView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Period: 12 - 14" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wrz-6h-1eA">
-                                                                            <rect key="frame" x="0.0" y="54" width="82" height="16"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="16" id="ltf-zT-9G9"/>
-                                                                            </constraints>
+                                                                            <rect key="frame" x="0.0" y="56" width="82" height="16"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <color key="textColor" name="xdarkGray"/>
                                                                             <nil key="highlightedColor"/>
@@ -310,7 +304,7 @@
                                                                     <real key="value" value="1"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                    <color key="value" name="xlightGray"/>
+                                                                    <color key="value" name="xdarkGray"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
                                                                     <real key="value" value="16"/>
@@ -342,7 +336,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeDashboardAdTableViewCell" id="7OX-7t-b84" customClass="HomeDashboardAdTableViewCell" customModule="TokMarket" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="228" width="393" height="162.33332824707031"/>
+                                        <rect key="frame" x="0.0" y="230" width="393" height="162.33332824707031"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7OX-7t-b84" id="zqp-9T-p8x">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="162.33332824707031"/>
@@ -376,7 +370,7 @@
                                                             <real key="value" value="16"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" name="xlightGray"/>
+                                                            <color key="value" name="xdarkGray"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -451,9 +445,6 @@
         </namedColor>
         <namedColor name="xdarkGray">
             <color red="0.59200000762939453" green="0.57999998331069946" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="xlightGray">
-            <color red="0.90200001001358032" green="0.89399999380111694" blue="0.88999998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -8,9 +8,8 @@
 import Foundation
 
 extension NSNotification.Name {
-    static let addressDataUpdated = NSNotification.Name(rawValue: "addressDataUpdated")
     static let updatePrice = NSNotification.Name(rawValue: "UpdatePrice")
-    static let updateSwapAndStake = NSNotification.Name(rawValue: "UpdateSwapAndStake")
+    static let updateScreen = NSNotification.Name(rawValue: "UpdatePrice")
 }
 
 extension NotificationCenter {

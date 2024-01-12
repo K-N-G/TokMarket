@@ -31,4 +31,38 @@ class PriceManager {
                 completion(nil)
             }
     }
+    
+    class func fetchLatestEnergyPrices(completion: @escaping (_ energyPrice: EnergyPrice?, _ error: Error?) -> Void) {
+        AF.request("https://seahorse-app-ehbvv.ondigitalocean.app/latest-price", method: .get)
+            .responseDecodable(of: EnergyPrice.self) { response in
+                if let error = response.error {
+                    print(error.localizedDescription)
+                    completion(nil, error)
+                }
+                
+                guard let energyPryce = response.value else {
+                    completion(nil, nil)
+                    return
+                }
+               
+                completion(energyPryce, nil)
+            }
+    }
+    
+    class func fetchLatestEnergyPricesDate(completion: @escaping (_ energyPrice: String?, _ error: Error?) -> Void) {
+        AF.request("https://seahorse-app-ehbvv.ondigitalocean.app/latest-price-date", method: .get)
+            .responseDecodable(of: LatestPriceDate.self) { response in
+                if let error = response.error {
+                    print(error.localizedDescription)
+                    completion(nil, error)
+                }
+                
+                guard let energyPryceDate = response.value else {
+                    completion(nil, nil)
+                    return
+                }
+               
+                completion(energyPryceDate.latestDate, nil)
+            }
+    }
 }
