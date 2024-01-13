@@ -38,17 +38,18 @@ class HomeDashboardViewController: UIViewController {
     
     
     func setupScreen() {
-        guard let todayEnergyPrice = self.todayEnergyPrice else {
+        guard let todayEnergyPrice = self.todayEnergyPrice,
+        let hourlyData = LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice) else {
             return
         }
         self.rows = []
         self.currentDateTimeLabel.text = "\(LocalDataManager.getCurrentDate())  \(CalculationManager.getPeriodBy(time: LocalDataManager.getCurrentHour()))"
-        self.currentPriceValueLabel.text = "\(LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice)?.bgn ?? 0.00) \(UserData.defaultCurrency.rawValue)"
+        self.currentPriceValueLabel.text = "\(LocalDataManager.getPriceBy(hourlyData: hourlyData) ?? 0.00) \(UserData.defaultCurrency.rawValue)"
         self.rows = [
             DashboardRow(titleName: "", 
                          type: .statistics,
                          leftTitle: "Price per \(MeasuringUnits.kWh.rawValue)",
-                         leftValue: "\(((LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice)?.bgn ?? 0.00) / 1000).formatFiveSymbol)",
+                         leftValue: "\(((LocalDataManager.getPriceBy(hourlyData: hourlyData) ?? 0.00) / 1000).formatFiveSymbol)",
                          leftValueType: " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.kWh.rawValue)",
                          leftdescriptionIsVisible: true,
                          rightTitle: "Average price",
@@ -82,7 +83,7 @@ class HomeDashboardViewController: UIViewController {
                          leftValueType: " \(MeasuringUnits.mWh.rawValue)",
                          leftdescriptionIsVisible: false,
                          rightTitle: "Volume",
-                         rightValue: "\(LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice)?.volume ?? 0.00)",
+                         rightValue: "\(LocalDataManager.getCurrentHourInfoBy(energyPrice: todayEnergyPrice)?.volume ?? 0.00)",
                          rightValueType: " \(MeasuringUnits.mWh.rawValue)",
                          rightdescriptionIsVisible: false),
             DashboardRow(titleName: "Ad banner", type: .ad)
@@ -135,7 +136,7 @@ extension HomeDashboardViewController: UITableViewDelegate, UITableViewDataSourc
             if let homeDashboardTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeDashboardTableViewCell", for: indexPath) as? HomeDashboardTableViewCell {
                 homeDashboardTableViewCell.hourPeriodLabel.text = "Period: \(CalculationManager.getPeriodBy(time: row.titleName))"
                 homeDashboardTableViewCell.volumeValueLabel.text = "\(row.hourlyInfo?.volume ?? 0.0)"
-                homeDashboardTableViewCell.priceValueLabel.text = "\(row.hourlyInfo?.bgn ?? 0.0)"
+                homeDashboardTableViewCell.priceValueLabel.text = "\(LocalDataManager.getPriceBy(hourlyInfo: row.hourlyInfo) ?? 0.0)"
                 if row.titleName == LocalDataManager.getCurrentHour() {
                     homeDashboardTableViewCell.cellView.backgroundColor = UIColor(named: "currentCell")
                     UserData.currentDashboardHour = row.titleName

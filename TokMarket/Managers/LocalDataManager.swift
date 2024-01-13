@@ -75,10 +75,40 @@ final class LocalDataManager {
         return formattedTime
     }
     
-    static func getCurrentHourDataBy(energyPrice: EnergyPrice) -> HourlyInfo? {
+    static func getCurrentHourInfoBy(energyPrice: EnergyPrice) -> HourlyInfo? {
         let hourlyInfo = energyPrice.hourlyData.first(where: {$0.time == self.getCurrentHour()})?.data
         return hourlyInfo
     }
     
+    static func getCurrentHourDataBy(energyPrice: EnergyPrice) -> HourlyData? {
+        let hourlyData = energyPrice.hourlyData.first(where: {$0.time == self.getCurrentHour()})
+        return hourlyData
+    }
+    
+    static func getPriceBy(hourlyData: HourlyData) -> Double? {
+        var price: Double?
+        switch UserData.defaultCurrency {
+        case .bgn:
+            price = hourlyData.data?.bgn
+        case .eur:
+            price = hourlyData.data?.eur
+        }
+        
+        return price
+    }
+    
+    static func getPriceBy(hourlyInfo: HourlyInfo?) -> Double? {
+        var price: Double?
+        guard let hourlyInfo = hourlyInfo else { return price }
+        
+        switch UserData.defaultCurrency {
+        case .bgn:
+            price = hourlyInfo.bgn
+        case .eur:
+            price = hourlyInfo.eur
+        }
+        
+        return price
+    }
 }
 

@@ -13,8 +13,8 @@ final class CalculationManager {
     
     static func getMinPriceTodayBy(energyPrice: EnergyPrice) -> Double? {
         var minPrice = 10000.0
-        for hourlyInfo in energyPrice.hourlyData {
-            if let price = hourlyInfo.data?.bgn,
+        for hourlyData in energyPrice.hourlyData {
+            if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
                minPrice > price {
                 minPrice = price
             }
@@ -25,11 +25,11 @@ final class CalculationManager {
     static func getMinHourlyDataBy(energyPrice: EnergyPrice) -> HourlyData? {
         var minHourlyData: HourlyData?
         var minPrice = 10000.0
-        for hourlyInfo in energyPrice.hourlyData {
-            if let price = hourlyInfo.data?.bgn,
+        for hourlyData in energyPrice.hourlyData {
+            if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
                minPrice > price {
                 minPrice = price
-                minHourlyData = hourlyInfo
+                minHourlyData = hourlyData
             }
         }
         return minHourlyData
@@ -37,8 +37,8 @@ final class CalculationManager {
     
     static func getMaxPriceTodayBy(energyPrice: EnergyPrice) -> Double? {
         var maxPrice = -100.0
-        for hourlyInfo in energyPrice.hourlyData {
-            if let price = hourlyInfo.data?.bgn,
+        for hourlyData in energyPrice.hourlyData {
+            if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
                maxPrice < price {
                 maxPrice = price
             }
@@ -49,11 +49,11 @@ final class CalculationManager {
     static func getMaxHourlyDataBy(energyPrice: EnergyPrice) -> HourlyData? {
         var maxHourlyData: HourlyData?
         var maxPrice = -100.0
-        for hourlyInfo in energyPrice.hourlyData {
-            if let price = hourlyInfo.data?.bgn,
+        for hourlyData in energyPrice.hourlyData {
+            if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
                maxPrice < price {
                 maxPrice = price
-                maxHourlyData = hourlyInfo
+                maxHourlyData = hourlyData
             }
         }
         return maxHourlyData
@@ -62,8 +62,8 @@ final class CalculationManager {
     static func getAveragePriceTodayBy(energyPrice: EnergyPrice) -> Double? {
         var count = 0.0
         var prices = 0.0
-        for hourlyInfo in energyPrice.hourlyData {
-            if let price = hourlyInfo.data?.bgn {
+        for hourlyData in energyPrice.hourlyData {
+            if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData) {
                 count += 1.0
                 prices += price
             }
@@ -74,9 +74,9 @@ final class CalculationManager {
     static func getAveragePricePeakBy(energyPrice: EnergyPrice) -> Double? {
         var count = 0.0
         var prices = 0.0
-        for hourlyInfo in energyPrice.hourlyData {
-            if peakHours.contains(hourlyInfo.time) {
-                if let price = hourlyInfo.data?.bgn {
+        for hourlyData in energyPrice.hourlyData {
+            if peakHours.contains(hourlyData.time) {
+                if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData) {
                     count += 1.0
                     prices += price
                 }
@@ -88,11 +88,9 @@ final class CalculationManager {
     static func getAveragePriceOffPeakBy(energyPrice: EnergyPrice) -> Double? {
         var count = 0.0
         var prices = 0.0
-        for hourlyInfo in energyPrice.hourlyData {
-            
-            if !(peakHours.contains(hourlyInfo.time)) {
-                
-                if let price = hourlyInfo.data?.bgn {
+        for hourlyData in energyPrice.hourlyData {
+            if !(peakHours.contains(hourlyData.time)) {
+                if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData) {
                     count += 1.0
                     prices += price
                 }

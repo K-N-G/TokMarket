@@ -24,7 +24,8 @@ class HistoryDetailsViewController: UIViewController {
     }
     
     func setupScreen() {
-        guard let todayEnergyPrice = self.todayEnergyPrice else {
+        guard let todayEnergyPrice = self.todayEnergyPrice,
+              let hourlyData = LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice) else {
             return
         }
         self.rows = []
@@ -32,7 +33,7 @@ class HistoryDetailsViewController: UIViewController {
             DashboardRow(titleName: "",
                          type: .statistics,
                          leftTitle: "Price per \(MeasuringUnits.kWh.rawValue)",
-                         leftValue: "\(((LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice)?.bgn ?? 0.00) / 1000).formatFiveSymbol)",
+                         leftValue: "\(((LocalDataManager.getPriceBy(hourlyData: hourlyData) ?? 0.00) / 1000).formatFiveSymbol)",
                          leftValueType: " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.kWh.rawValue)",
                          leftdescriptionIsVisible: true,
                          rightTitle: "Average price",
@@ -116,7 +117,7 @@ extension HistoryDetailsViewController: UITableViewDelegate, UITableViewDataSour
             if let homeDashboardTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeDashboardTableViewCell", for: indexPath) as? HomeDashboardTableViewCell {
                 homeDashboardTableViewCell.hourPeriodLabel.text = "Period: \(CalculationManager.getPeriodBy(time: row.titleName))"
                 homeDashboardTableViewCell.volumeValueLabel.text = "\(row.hourlyInfo?.volume ?? 0.0)"
-                homeDashboardTableViewCell.priceValueLabel.text = "\(row.hourlyInfo?.bgn ?? 0.0)"
+                homeDashboardTableViewCell.priceValueLabel.text = "\(LocalDataManager.getPriceBy(hourlyInfo: row.hourlyInfo) ?? 0.0)"
                 return homeDashboardTableViewCell
             }
         case .ad:

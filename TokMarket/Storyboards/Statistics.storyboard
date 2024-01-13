@@ -39,12 +39,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6y-c0-mCM">
+                                <rect key="frame" x="16" y="452.66666666666669" width="361" height="19.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" name="kindaBlack"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="xWhite"/>
                         <constraints>
                             <constraint firstItem="XOS-n4-VTs" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Bxz-Ty-Dcf"/>
+                            <constraint firstItem="a6y-c0-mCM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="PkC-Zb-1Eo"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="a6y-c0-mCM" secondAttribute="trailing" constant="16" id="PuY-Hy-9pc"/>
                             <constraint firstItem="XOS-n4-VTs" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="myx-Nf-xRE"/>
+                            <constraint firstItem="a6y-c0-mCM" firstAttribute="top" secondItem="XOS-n4-VTs" secondAttribute="bottom" constant="16" id="vRb-Ly-RWc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="chart.xyaxis.line" catalog="system" id="2pZ-KQ-xS0"/>
@@ -60,6 +69,9 @@
     </scenes>
     <resources>
         <image name="chart.xyaxis.line" catalog="system" width="128" height="102"/>
+        <namedColor name="kindaBlack">
+            <color red="0.14499999582767487" green="0.14499999582767487" blue="0.14900000393390656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="xWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

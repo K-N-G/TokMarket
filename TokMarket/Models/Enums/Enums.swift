@@ -8,7 +8,7 @@
 import Foundation
 
 enum DefaultCurrency: String {
-    case bgn = "лв."
+    case bgn = "лв"
     case eur = "EUR"
 }
 
