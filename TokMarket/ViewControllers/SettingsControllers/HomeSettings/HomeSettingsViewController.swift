@@ -25,18 +25,18 @@ class HomeSettingsViewController: UIViewController {
     func setupScreen() {
         self.sections = [
             SettingSection(rows: [
-                SettingRow(titleName: "Version", type: .version),
-                SettingRow(titleName: "Terms of service", type: .privacyPolicy),
-                SettingRow(titleName: "Privacy policy", type: .termsOfService)
+                SettingRow(titleName: "version".localized, type: .version),
+                SettingRow(titleName: "terms_of_service".localized, type: .privacyPolicy),
+                SettingRow(titleName: "privacy_policy".localized, type: .termsOfService)
             ], type: .about),
             SettingSection(rows: [
-                SettingRow(titleName: "Language", type: .language),
-                SettingRow(titleName: "Currency", type: .currency)
+                SettingRow(titleName: "language".localized, type: .language),
+                SettingRow(titleName: "currency".localized, type: .currency)
             ], type: .regional),
             SettingSection(rows: [
-                SettingRow(titleName: "FAQ", type: .faq),
-                SettingRow(titleName: "Contact us", type: .contactUs),
-                SettingRow(titleName: "Request a feature", type: .requestAFeature)
+                SettingRow(titleName: "FAQ".localized, type: .faq),
+                SettingRow(titleName: "contact_us".localized, type: .contactUs),
+                SettingRow(titleName: "request_a_feature".localized, type: .requestAFeature)
             ], type: .help)
         ]
     }
@@ -45,9 +45,9 @@ class HomeSettingsViewController: UIViewController {
         var actions: [(String, UIAlertAction.Style)] = []
         actions.append(("\(DefaultCurrency.bgn.rawValue.uppercased())", .default))
         actions.append(("\(DefaultCurrency.eur.rawValue.uppercased())", .default))
-        actions.append(("Cancel", .cancel))
+        actions.append(("cancel".localized, .cancel))
         
-        Alerts.showActionsheet(viewController: self, title: "Currencies", message: "Select default currency", actions: actions) { (index) in
+        Alerts.showActionsheet(viewController: self, title: "currencies".localized, message: "select_default_currency".localized, actions: actions) { (index) in
             switch index{
             case 0:
                 UserData.defaultCurrency = .bgn
@@ -56,6 +56,7 @@ class HomeSettingsViewController: UIViewController {
             default:
                 return
             }
+            self.setupScreen()
             self.tableView.reloadData()
         }
     }
@@ -64,9 +65,9 @@ class HomeSettingsViewController: UIViewController {
         var actions: [(String, UIAlertAction.Style)] = []
         actions.append(("\(DefaultLanguage.bulgarian.rawValue.uppercased())", .default))
         actions.append(("\(DefaultLanguage.english.rawValue.uppercased())", .default))
-        actions.append(("Cancel", .cancel))
+        actions.append(("cancel".localized, .cancel))
         
-        Alerts.showActionsheet(viewController: self, title: "Languages", message: "Select default language", actions: actions) { (index) in
+        Alerts.showActionsheet(viewController: self, title: "languages".localized, message: "select_default_language".localized, actions: actions) { (index) in
             switch index{
             case 0:
                 UserData.defaultLanguage = .bulgarian
@@ -75,6 +76,7 @@ class HomeSettingsViewController: UIViewController {
             default:
                 return
             }
+            self.setupScreen()
             self.tableView.reloadData()
         }
     }
@@ -204,11 +206,11 @@ extension HomeSettingsViewController {
             var description: String {
                 switch self {
                 case .about:
-                    return "About"
+                    return "about".localized
                 case .regional:
-                    return "Regional"
+                    return "regional".localized
                 case .help:
-                    return "Help"
+                    return "help".localized
                 }
             }
         }

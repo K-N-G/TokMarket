@@ -27,12 +27,10 @@ class HomeDashboardViewController: UIViewController {
     }
     
     @objc func applicationDidBecomeActive(notification: NSNotification) {
-        print("applicationDidBecomeActive - HomeDashboardViewController")
         setupScreen()
     }
     
     @objc func updateScreen(notification: NSNotification) {
-        print("updateScreen - HomeDashboardViewController")
         setupScreen()
     }
     
@@ -48,45 +46,45 @@ class HomeDashboardViewController: UIViewController {
         self.rows = [
             DashboardRow(titleName: "", 
                          type: .statistics,
-                         leftTitle: "Price per \(MeasuringUnits.kWh.rawValue)",
+                         leftTitle: "\("price_per".localized) \(MeasuringUnits.kWh.rawValue)",
                          leftValue: "\(((LocalDataManager.getPriceBy(hourlyData: hourlyData) ?? 0.00) / 1000).formatFiveSymbol)",
                          leftValueType: " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.kWh.rawValue)",
                          leftdescriptionIsVisible: true,
-                         rightTitle: "Average price",
+                         rightTitle: "average_price".localized,
                          rightValue: "\(CalculationManager.getAveragePriceTodayBy(energyPrice: todayEnergyPrice) ?? 0.00)",
                          rightValueType: " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.mWh.rawValue)",
                          rightdescriptionIsVisible: true),
             DashboardRow(titleName: "",
                          type: .statistics,
-                         leftTitle: "Off-peak price",
+                         leftTitle: "off_peak_market".localized,
                          leftValue: "\(CalculationManager.getAveragePriceOffPeakBy(energyPrice: todayEnergyPrice) ?? 0.00)",
                          leftValueType: " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.mWh.rawValue)",
                          leftdescriptionIsVisible: true,
-                         rightTitle: "Peak price",
+                         rightTitle: "peak_market".localized,
                          rightValue: "\(CalculationManager.getAveragePricePeakBy(energyPrice: todayEnergyPrice) ?? 0.00)",
                          rightValueType: " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.mWh.rawValue)",
                          rightdescriptionIsVisible: true),
             DashboardRow(titleName: "",
                          type: .statistics,
-                         leftTitle: "Min price",
+                         leftTitle: "min_price".localized,
                          leftValue: "\(CalculationManager.getMinPriceTodayBy(energyPrice: todayEnergyPrice) ?? 0.00)",
                          leftValueType: " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.mWh.rawValue)",
-                         leftDescription: "Period: \(CalculationManager.getPeriodBy(time: CalculationManager.getMinHourlyDataBy(energyPrice: todayEnergyPrice)?.time ?? ""))",
-                         rightTitle: "Max price",
+                         leftDescription: "\("period".localized): \(CalculationManager.getPeriodBy(time: CalculationManager.getMinHourlyDataBy(energyPrice: todayEnergyPrice)?.time ?? ""))",
+                         rightTitle: "max_price".localized,
                          rightValue: "\(CalculationManager.getMaxPriceTodayBy(energyPrice: todayEnergyPrice) ?? 0.00)",
                          rightValueType: " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.mWh.rawValue)",
-                         rightDescription: "Period: \(CalculationManager.getPeriodBy(time: CalculationManager.getMaxHourlyDataBy(energyPrice: todayEnergyPrice)?.time ?? ""))"),
+                         rightDescription: "\("period".localized): \(CalculationManager.getPeriodBy(time: CalculationManager.getMaxHourlyDataBy(energyPrice: todayEnergyPrice)?.time ?? ""))"),
             DashboardRow(titleName: "",
                          type: .statistics,
-                         leftTitle: "Total volume",
+                         leftTitle: "total_volume".localized,
                          leftValue: "\(CalculationManager.getTotalVolumeBy(energyPrice: todayEnergyPrice) ?? 0.00)",
                          leftValueType: " \(MeasuringUnits.mWh.rawValue)",
                          leftdescriptionIsVisible: false,
-                         rightTitle: "Volume",
+                         rightTitle: "volume".localized,
                          rightValue: "\(LocalDataManager.getCurrentHourInfoBy(energyPrice: todayEnergyPrice)?.volume ?? 0.00)",
                          rightValueType: " \(MeasuringUnits.mWh.rawValue)",
                          rightdescriptionIsVisible: false),
-            DashboardRow(titleName: "Ad banner", type: .ad)
+            DashboardRow(titleName: "ad_banner".localized, type: .ad)
             
         ]
         if let hourlyDatas = self.todayEnergyPrice?.hourlyData {
@@ -96,11 +94,11 @@ class HomeDashboardViewController: UIViewController {
                     self.rows.append(DashboardRow(titleName: hourlyData.time, type: .hourInfo, hourlyInfo: hourlyInfo))
                     hourlyDataCount += 1
                     if hourlyDataCount == 8 || hourlyDataCount == 21 {
-                        self.rows.append(DashboardRow(titleName: "Ad banner", type: .ad))
+                        self.rows.append(DashboardRow(titleName: "ad_banner".localized, type: .ad))
                     }
                 }
             }
-            self.rows.append(DashboardRow(titleName: "Ad banner", type: .ad))
+            self.rows.append(DashboardRow(titleName: "ad_banner".localized, type: .ad))
         }
         
         self.tableView.reloadData()
@@ -134,8 +132,10 @@ extension HomeDashboardViewController: UITableViewDelegate, UITableViewDataSourc
             }
         case .hourInfo:
             if let homeDashboardTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeDashboardTableViewCell", for: indexPath) as? HomeDashboardTableViewCell {
-                homeDashboardTableViewCell.hourPeriodLabel.text = "Period: \(CalculationManager.getPeriodBy(time: row.titleName))"
+                homeDashboardTableViewCell.hourPeriodLabel.text = "\("period".localized): \(CalculationManager.getPeriodBy(time: row.titleName))"
+                homeDashboardTableViewCell.volumeLabel.text = "\("volume".localized) \(MeasuringUnits.mWh.rawValue)"
                 homeDashboardTableViewCell.volumeValueLabel.text = "\(row.hourlyInfo?.volume ?? 0.0)"
+                homeDashboardTableViewCell.priceLabel.text = "\("price".localized) \(MeasuringUnits.mWh.rawValue)"
                 homeDashboardTableViewCell.priceValueLabel.text = "\(LocalDataManager.getPriceBy(hourlyInfo: row.hourlyInfo) ?? 0.0)"
                 if row.titleName == LocalDataManager.getCurrentHour() {
                     homeDashboardTableViewCell.cellView.backgroundColor = UIColor(named: "currentCell")

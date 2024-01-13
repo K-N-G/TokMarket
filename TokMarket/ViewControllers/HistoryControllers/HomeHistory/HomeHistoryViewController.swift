@@ -23,12 +23,10 @@ class HomeHistoryViewController: UIViewController {
     }
     
     @objc func applicationDidBecomeActive(notification: NSNotification) {
-        print("applicationDidBecomeActive - HomeHistoryViewController")
         setupScreen()
     }
     
     @objc func updateScreen(notification: NSNotification) {
-        print("updateScreen - HomeHistoryViewController")
         setupScreen()
     }
     
@@ -47,16 +45,16 @@ extension HomeHistoryViewController: UITableViewDelegate, UITableViewDataSource 
         if let homeHistoryInfoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeHistoryInfoTableViewCell", for: indexPath) as? HomeHistoryInfoTableViewCell {
             let energyPrice = self.energyPrices[indexPath.row]
             homeHistoryInfoTableViewCell.deyLabel.text = energyPrice.date
-            homeHistoryInfoTableViewCell.avaregePriceLabel.text = "Avarege price"
+            homeHistoryInfoTableViewCell.avaregePriceLabel.text = "average_price".localized
             homeHistoryInfoTableViewCell.avaregePriceValueLabel.text = "\(CalculationManager.getAveragePriceTodayBy(energyPrice: energyPrice) ?? 0.00)"
             homeHistoryInfoTableViewCell.avaregePriceTypeLabel.text = " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.mWh.rawValue)"
-            homeHistoryInfoTableViewCell.totalVolumeLabel.text = "Total volume"
+            homeHistoryInfoTableViewCell.totalVolumeLabel.text = "total_volume".localized
             homeHistoryInfoTableViewCell.totalVolumeValueLabel.text = "\(CalculationManager.getTotalVolumeBy(energyPrice: energyPrice) ?? 0.00)"
             homeHistoryInfoTableViewCell.totalVolumeTypeLabel.text = " \(MeasuringUnits.mWh.rawValue)"
-            homeHistoryInfoTableViewCell.minPriceLabel.text = "Min price"
+            homeHistoryInfoTableViewCell.minPriceLabel.text = "min_price".localized
             homeHistoryInfoTableViewCell.minPriceValueLabel.text = "\(CalculationManager.getMinPriceTodayBy(energyPrice: energyPrice) ?? 0.00)"
             homeHistoryInfoTableViewCell.minPriceTypeLabel.text = " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.mWh.rawValue)"
-            homeHistoryInfoTableViewCell.maxPriceLabel.text = "Max price"
+            homeHistoryInfoTableViewCell.maxPriceLabel.text = "max_price".localized
             homeHistoryInfoTableViewCell.maxPriceValueLabel.text = "\(CalculationManager.getMaxPriceTodayBy(energyPrice: energyPrice) ?? 0.00)"
             homeHistoryInfoTableViewCell.maxPriceTypeLabel.text = " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.mWh.rawValue)"
             
