@@ -26,6 +26,10 @@ final class TimerManager {
     }
     
     static private func fetchPrices() {
+        if UserData.isFirstAppLaunch {
+            self.fetchEnergyPrices()
+            UserData.isFirstAppLaunch = true
+        }
         updatePrices()
         pricesTimer = Timer.scheduledTimer(withTimeInterval: 3600.0, repeats: true, block: { _ in
             updatePrices()
@@ -46,9 +50,13 @@ final class TimerManager {
                 return
             }
             if lastDataBaseDate == lastServiceDate { return }
-            PriceManager.fetchEnergyPrices(completion: {error in
-                NotificationCenter.default.post(name: .updateScreen, object: nil)
-            })
+            self.fetchEnergyPrices()
+        })
+    }
+    
+    static private func fetchEnergyPrices() {
+        PriceManager.fetchEnergyPrices(completion: {error in
+            NotificationCenter.default.post(name: .updateScreen, object: nil)
         })
     }
     

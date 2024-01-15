@@ -37,4 +37,14 @@ final class UserData {
             UserDefaults.standard.synchronize()
         }
     }
+    
+    static var isFirstAppLaunch: Bool {
+        get {
+            return !UserDefaults.standard.bool(forKey: "isFirstAppLaunch")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "isFirstAppLaunch")
+            UserDefaults.standard.synchronize()
+        }
+    }
 }

@@ -112,53 +112,53 @@ final class CalculationManager {
     static func getPeriodBy(time: String) -> String {
         var period = "---"
         switch time {
-        case "00:00:00":
+        case "00:00:00", "0":
             period = "0 - 1"
-        case "01:00:00":
+        case "01:00:00", "1":
             period = "1 - 2"
-        case "02:00:00":
+        case "02:00:00", "2":
             period = "2 - 3"
-        case "03:00:00":
+        case "03:00:00", "3":
             period = "3 - 4"
-        case "04:00:00":
+        case "04:00:00", "4":
             period = "4 - 5"
-        case "05:00:00":
+        case "05:00:00", "5":
             period = "5 - 6"
-        case "06:00:00":
+        case "06:00:00", "6":
             period = "6 - 7"
-        case "07:00:00":
+        case "07:00:00", "7":
             period = "7 - 8"
-        case "08:00:00":
+        case "08:00:00", "8":
             period = "8 - 9"
-        case "09:00:00":
+        case "09:00:00", "9":
             period = "9 - 10"
-        case "10:00:00":
+        case "10:00:00", "10":
             period = "10 - 11"
-        case "11:00:00":
+        case "11:00:00", "11":
             period = "11 - 12"
-        case "12:00:00":
+        case "12:00:00", "12":
             period = "12 - 13"
-        case "13:00:00":
+        case "13:00:00", "13":
             period = "13 - 14"
-        case "14:00:00":
+        case "14:00:00", "14":
             period = "14 - 15"
-        case "15:00:00":
+        case "15:00:00", "15":
             period = "15 - 16"
-        case "16:00:00":
+        case "16:00:00", "16":
             period = "16 - 17"
-        case "17:00:00":
+        case "17:00:00", "17":
             period = "17 - 18"
-        case "18:00:00":
+        case "18:00:00", "18":
             period = "18 - 19"
-        case "19:00:00":
+        case "19:00:00", "19":
             period = "19 - 20"
-        case "20:00:00":
+        case "20:00:00", "20":
             period = "20 - 21"
-        case "21:00:00":
+        case "21:00:00", "21":
             period = "21 - 22"
-        case "22:00:00":
+        case "22:00:00", "22":
             period = "22 - 23"
-        case "23:00:00":
+        case "23:00:00", "23":
             period = "23 - 0"
         default:
             break

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B31B9EEE2B548EBF007CD58E /* DGCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31B9EE82B548DC8007CD58E /* DGCharts.framework */; };
+		B31B9EEF2B548EBF007CD58E /* DGCharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B31B9EE82B548DC8007CD58E /* DGCharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B343FC232B4979F900B98D45 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B343FC222B4979F900B98D45 /* Alamofire */; };
 		B343FC262B497E8600B98D45 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B343FC252B497E8600B98D45 /* JGProgressHUD */; };
 		B343FC2B2B4B30F600B98D45 /* EnergyPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B343FC2A2B4B30F600B98D45 /* EnergyPrice.swift */; };
@@ -34,6 +36,7 @@
 		B379386B2B52AAFF002FB715 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B379386A2B52AAFF002FB715 /* Alerts.swift */; };
 		B379387A2B52BF6E002FB715 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B379387C2B52BF6E002FB715 /* Localizable.strings */; };
 		B379387F2B52BFB2002FB715 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B379387E2B52BFB2002FB715 /* String.swift */; };
+		B37938812B547447002FB715 /* ChartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37938802B547447002FB715 /* ChartManager.swift */; };
 		B3972D6F2B44B15A0005160D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3972D6E2B44B15A0005160D /* AppDelegate.swift */; };
 		B3972D712B44B15A0005160D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3972D702B44B15A0005160D /* SceneDelegate.swift */; };
 		B3972D762B44B15A0005160D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3972D742B44B15A0005160D /* Main.storyboard */; };
@@ -57,6 +60,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B31B9EE72B548DC8007CD58E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B31B9EE22B548DC8007CD58E /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = DGCharts;
+		};
+		B31B9EE92B548DC8007CD58E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B31B9EE22B548DC8007CD58E /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = DGChartsTests;
+		};
+		B31B9EEB2B548E41007CD58E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B31B9EE22B548DC8007CD58E /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A58A4ED274A941CA248EA921;
+			remoteInfo = DGCharts;
+		};
 		B3972D822B44B1640005160D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B3972D632B44B1590005160D /* Project object */;
@@ -73,7 +97,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B31B9EF02B548EBF007CD58E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B31B9EEF2B548EBF007CD58E /* DGCharts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B31B9EE22B548DC8007CD58E /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../Library/Developer/Xcode/DerivedData/TokMarket-dritttmttdgrwlgrijlppdhqfpsn/SourcePackages/checkouts/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		B343FC2A2B4B30F600B98D45 /* EnergyPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyPrice.swift; sourceTree = "<group>"; };
 		B343FC2C2B4B33B700B98D45 /* PriceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceManager.swift; sourceTree = "<group>"; };
 		B343FC322B4B3CF000B98D45 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
@@ -98,6 +137,7 @@
 		B379387B2B52BF6E002FB715 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B379387D2B52BF95002FB715 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B379387E2B52BFB2002FB715 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		B37938802B547447002FB715 /* ChartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartManager.swift; sourceTree = "<group>"; };
 		B3972D6B2B44B15A0005160D /* TokMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3972D6E2B44B15A0005160D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3972D702B44B15A0005160D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +172,7 @@
 				B343FC312B4B36D800B98D45 /* RealmSwift in Frameworks */,
 				B343FC2F2B4B36D800B98D45 /* Realm in Frameworks */,
 				B343FC262B497E8600B98D45 /* JGProgressHUD in Frameworks */,
+				B31B9EEE2B548EBF007CD58E /* DGCharts.framework in Frameworks */,
 				B343FC232B4979F900B98D45 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +194,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B31B9EE32B548DC8007CD58E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B31B9EE82B548DC8007CD58E /* DGCharts.framework */,
+				B31B9EEA2B548DC8007CD58E /* DGChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B31B9EED2B548EBF007CD58E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B343FC292B4B30D800B98D45 /* RealmModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,10 +246,12 @@
 		B3972D622B44B1590005160D = {
 			isa = PBXGroup;
 			children = (
+				B31B9EE22B548DC8007CD58E /* Charts.xcodeproj */,
 				B3972D6D2B44B15A0005160D /* TokMarket */,
 				B3972D842B44B1640005160D /* TokMarketTests */,
 				B3972D8E2B44B1640005160D /* TokMarketUITests */,
 				B3972D6C2B44B15A0005160D /* Products */,
+				B31B9EED2B548EBF007CD58E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,6 +333,7 @@
 				B345074B2B4DA1CF003A0FD3 /* CalculationManager.swift */,
 				B379385D2B5136ED002FB715 /* TimerManager.swift */,
 				B379386A2B52AAFF002FB715 /* Alerts.swift */,
+				B37938802B547447002FB715 /* ChartManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -392,10 +452,12 @@
 				B3972D672B44B1590005160D /* Sources */,
 				B3972D682B44B1590005160D /* Frameworks */,
 				B3972D692B44B1590005160D /* Resources */,
+				B31B9EF02B548EBF007CD58E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B31B9EEC2B548E41007CD58E /* PBXTargetDependency */,
 			);
 			name = TokMarket;
 			packageProductDependencies = (
@@ -481,10 +543,16 @@
 				B343FC212B4979F900B98D45 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B343FC242B497E8600B98D45 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				B343FC272B497F7600B98D45 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				B343FC282B49805300B98D45 /* XCRemoteSwiftPackageReference "Charts" */,
+				B31B9EDF2B5487DC007CD58E /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = B3972D6C2B44B15A0005160D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B31B9EE32B548DC8007CD58E /* Products */;
+					ProjectRef = B31B9EE22B548DC8007CD58E /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B3972D6A2B44B1590005160D /* TokMarket */,
@@ -493,6 +561,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B31B9EE82B548DC8007CD58E /* DGCharts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DGCharts.framework;
+			remoteRef = B31B9EE72B548DC8007CD58E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B31B9EEA2B548DC8007CD58E /* DGChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DGChartsTests.xctest;
+			remoteRef = B31B9EE92B548DC8007CD58E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B3972D692B44B1590005160D /* Resources */ = {
@@ -558,6 +643,7 @@
 				B3972DF12B4864E70005160D /* InitialViewController.swift in Sources */,
 				B343FC2B2B4B30F600B98D45 /* EnergyPrice.swift in Sources */,
 				B343FC372B4B58E600B98D45 /* HomeDashboardTableViewCell.swift in Sources */,
+				B37938812B547447002FB715 /* ChartManager.swift in Sources */,
 				B343FC392B4C172600B98D45 /* Double.swift in Sources */,
 				B345074F2B4DD8F3003A0FD3 /* UserData.swift in Sources */,
 				B34507592B4EC4CC003A0FD3 /* Array.swift in Sources */,
@@ -586,6 +672,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B31B9EEC2B548E41007CD58E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DGCharts;
+			targetProxy = B31B9EEB2B548E41007CD58E /* PBXContainerItemProxy */;
+		};
 		B3972D832B44B1640005160D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B3972D6A2B44B1590005160D /* TokMarket */;
@@ -926,6 +1017,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B31B9EDF2B5487DC007CD58E /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		B343FC212B4979F900B98D45 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -948,14 +1047,6 @@
 			requirement = {
 				branch = master;
 				kind = branch;
-			};
-		};
-		B343FC282B49805300B98D45 /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

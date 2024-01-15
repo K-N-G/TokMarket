@@ -6,17 +6,20 @@
 //
 
 import UIKit
+import DGCharts
 
 class HomeDashboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var currentDateTimeLabel: UILabel!
     @IBOutlet weak var currentPriceValueLabel: UILabel!
+    @IBOutlet weak var chartView: LineChartView!
     
     var todayEnergyPrice: EnergyPrice?
     var rows: [DashboardRow] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        chartView.delegate = self
         NotificationCenter.default.setObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
         NotificationCenter.default.setObserver(self, selector: #selector(updateScreen), name: .updateScreen, object: nil)
     }
@@ -40,6 +43,7 @@ class HomeDashboardViewController: UIViewController {
         let hourlyData = LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice) else {
             return
         }
+        ChartManager.setupLineChart(chartView: chartView, energyPrice: todayEnergyPrice)
         self.rows = []
         self.currentDateTimeLabel.text = "\(LocalDataManager.getCurrentDate())  \(CalculationManager.getPeriodBy(time: LocalDataManager.getCurrentHour()))"
         self.currentPriceValueLabel.text = "\(LocalDataManager.getPriceBy(hourlyData: hourlyData) ?? 0.00) \(UserData.defaultCurrency.rawValue)"
@@ -141,9 +145,8 @@ extension HomeDashboardViewController: UITableViewDelegate, UITableViewDataSourc
                     homeDashboardTableViewCell.cellView.backgroundColor = UIColor(named: "currentCell")
                     UserData.currentDashboardHour = row.titleName
                 } else {
-                    homeDashboardTableViewCell.cellView.backgroundColor = UIColor(named: "kindaWhite")
+                    homeDashboardTableViewCell.cellView.backgroundColor = UIColor(named: "xWhite")
                 }
-                homeDashboardTableViewCell.cellView.backgroundColor = row.titleName == LocalDataManager.getCurrentHour() ? UIColor(named: "currentCell") : UIColor(named: "kindaWhite")
                 return homeDashboardTableViewCell
             }
         case .ad:
@@ -180,5 +183,19 @@ extension HomeDashboardViewController {
         var rightdescriptionIsVisible:Bool = false
         var rightViewIsVisible:Bool = false
         var hourlyInfo: HourlyInfo?
+    }
+}
+
+extension HomeDashboardViewController: ChartViewDelegate {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        self.currentDateTimeLabel.text = "\(LocalDataManager.getCurrentDate()) \(CalculationManager.getPeriodBy(time: "\(Int(entry.x))"))"
+        self.currentPriceValueLabel.text = "\(entry.y) \(UserData.defaultCurrency.rawValue)"
+        
+    }
+    
+    func chartViewDidEndPanning(_ chartView: ChartViewBase) {
+        chartView.highlightPerTapEnabled = false
+        chartView.highlightValue(nil, callDelegate: false)
+        self.setupScreen()
     }
 }

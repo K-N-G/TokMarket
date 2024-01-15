@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import DGCharts
 
 class HistoryDetailsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var currentDateTimeLabel: UILabel!
+    @IBOutlet weak var currentPriceValueLabel: UILabel!
+    @IBOutlet weak var chartView: LineChartView!
     
     var todayEnergyPrice: EnergyPrice?
     var rows: [DashboardRow] = []
@@ -16,6 +20,7 @@ class HistoryDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = todayEnergyPrice?.date ?? ""
+        chartView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +33,9 @@ class HistoryDetailsViewController: UIViewController {
               let hourlyData = LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice) else {
             return
         }
+        ChartManager.setupLineChart(chartView: chartView, energyPrice: todayEnergyPrice)
+        self.currentDateTimeLabel.text = " "
+        self.currentPriceValueLabel.text = " "
         self.rows = []
         self.rows = [
             DashboardRow(titleName: "",
@@ -159,3 +167,17 @@ extension HistoryDetailsViewController {
     }
 }
 
+extension HistoryDetailsViewController: ChartViewDelegate {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        self.currentDateTimeLabel.text = "\("period".localized): \(CalculationManager.getPeriodBy(time: "\(Int(entry.x))"))"
+        self.currentPriceValueLabel.text = "\(entry.y) \(UserData.defaultCurrency.rawValue)"
+        
+    }
+    
+    func chartViewDidEndPanning(_ chartView: ChartViewBase) {
+        chartView.highlightPerTapEnabled = false
+        chartView.highlightValue(nil, callDelegate: false)
+        self.currentDateTimeLabel.text = " "
+        self.currentPriceValueLabel.text = " "
+    }
+}
