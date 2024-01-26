@@ -7,6 +7,7 @@
 
 import UIKit
 import DGCharts
+import GoogleMobileAds
 
 class HomeDashboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -151,7 +152,9 @@ extension HomeDashboardViewController: UITableViewDelegate, UITableViewDataSourc
             }
         case .ad:
             if let homeDashboardAdTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeDashboardAdTableViewCell", for: indexPath) as? HomeDashboardAdTableViewCell {
-                homeDashboardAdTableViewCell.adTitleLabel.text = row.titleName
+                homeDashboardAdTableViewCell.adBanner.adUnitID = AdsManager.adUnitID
+                homeDashboardAdTableViewCell.adBanner.rootViewController = self
+                homeDashboardAdTableViewCell.adBanner.load(GADRequest())
                 return homeDashboardAdTableViewCell
             }
             break

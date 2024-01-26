@@ -396,6 +396,45 @@
                                             <outlet property="totalVolumeValueLabel" destination="SRs-O0-Ck6" id="xdE-nU-rsJ"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeDashboardAdTableViewCell" id="Nnp-QH-qE6" customClass="HomeDashboardAdTableViewCell" customModule="TokMarket" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="246.33332824707031" width="393" height="258"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nnp-QH-qE6" id="gUk-fR-Iug">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="258"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvy-7Y-f4s">
+                                                    <rect key="frame" x="16" y="8" width="361" height="250"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Paq-Yn-LT6" customClass="GADBannerView">
+                                                            <rect key="frame" x="30.666666666666657" y="0.0" width="300" height="250"/>
+                                                            <color key="backgroundColor" name="kindaWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="300" id="S7T-Wr-J3I"/>
+                                                                <constraint firstAttribute="height" constant="250" id="sKe-Ea-TDn"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="kindaWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Paq-Yn-LT6" firstAttribute="top" secondItem="yvy-7Y-f4s" secondAttribute="top" id="HPO-Ej-d0M"/>
+                                                        <constraint firstItem="Paq-Yn-LT6" firstAttribute="centerX" secondItem="yvy-7Y-f4s" secondAttribute="centerX" id="jPi-gF-zab"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Paq-Yn-LT6" secondAttribute="bottom" id="pUa-zd-Oew"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="yvy-7Y-f4s" secondAttribute="bottom" id="Je5-E9-DsZ"/>
+                                                <constraint firstItem="yvy-7Y-f4s" firstAttribute="leading" secondItem="gUk-fR-Iug" secondAttribute="leading" constant="16" id="NEG-Ag-Db8"/>
+                                                <constraint firstItem="yvy-7Y-f4s" firstAttribute="top" secondItem="gUk-fR-Iug" secondAttribute="top" constant="8" id="hoE-a6-BGk"/>
+                                                <constraint firstAttribute="trailing" secondItem="yvy-7Y-f4s" secondAttribute="trailing" constant="16" id="tOD-iG-ukN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="kindaWhite"/>
+                                        <connections>
+                                            <outlet property="adBanner" destination="Paq-Yn-LT6" id="lnq-Jw-TWV"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="Iqk-7D-VjH"/>
@@ -717,43 +756,30 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeDashboardAdTableViewCell" id="s8b-3m-bOi" customClass="HomeDashboardAdTableViewCell" customModule="TokMarket" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="218" width="393" height="162.33332824707031"/>
+                                        <rect key="frame" x="0.0" y="218" width="393" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s8b-3m-bOi" id="jeR-Zk-VYV">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="162.33332824707031"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSx-tJ-Kr5">
-                                                    <rect key="frame" x="16" y="8" width="361" height="154.33333333333334"/>
+                                                    <rect key="frame" x="16" y="8" width="361" height="100"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad banner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1Q-pJ-XrE">
-                                                            <rect key="frame" x="16" y="64" width="329" height="26.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                            <color key="textColor" name="kindaBlack"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fuh-rw-RQy" customClass="GADBannerView">
+                                                            <rect key="frame" x="20.666666666666657" y="0.0" width="320" height="100"/>
+                                                            <color key="backgroundColor" name="kindaWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="320" id="YjZ-u4-Wqj"/>
+                                                                <constraint firstAttribute="height" constant="100" id="lG2-yC-NZq"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="xWhite"/>
+                                                    <color key="backgroundColor" name="kindaWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="x1Q-pJ-XrE" secondAttribute="bottom" constant="64" id="8Es-jf-1Sd"/>
-                                                        <constraint firstItem="x1Q-pJ-XrE" firstAttribute="leading" secondItem="hSx-tJ-Kr5" secondAttribute="leading" constant="16" id="D48-7L-f2Q"/>
-                                                        <constraint firstItem="x1Q-pJ-XrE" firstAttribute="top" secondItem="hSx-tJ-Kr5" secondAttribute="top" constant="64" id="KzD-G5-vhG"/>
-                                                        <constraint firstAttribute="trailing" secondItem="x1Q-pJ-XrE" secondAttribute="trailing" constant="16" id="syr-2K-iLa"/>
+                                                        <constraint firstItem="Fuh-rw-RQy" firstAttribute="centerX" secondItem="hSx-tJ-Kr5" secondAttribute="centerX" id="CPn-ui-xFR"/>
+                                                        <constraint firstItem="Fuh-rw-RQy" firstAttribute="top" secondItem="hSx-tJ-Kr5" secondAttribute="top" id="T6x-hR-QwK"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Fuh-rw-RQy" secondAttribute="bottom" id="fzY-Yb-m5v"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="16"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                            <real key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
-                                                            <real key="value" value="16"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" name="xdarkGray"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -765,7 +791,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="kindaWhite"/>
                                         <connections>
-                                            <outlet property="adTitleLabel" destination="x1Q-pJ-XrE" id="AyW-m9-leK"/>
+                                            <outlet property="adBanner" destination="Fuh-rw-RQy" id="E5E-dD-ZJv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -336,43 +336,30 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeDashboardAdTableViewCell" id="7OX-7t-b84" customClass="HomeDashboardAdTableViewCell" customModule="TokMarket" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="228.33333587646484" width="393" height="162.33332824707031"/>
+                                        <rect key="frame" x="0.0" y="228.33333587646484" width="393" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7OX-7t-b84" id="zqp-9T-p8x">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="162.33332824707031"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aze-0v-qUQ">
-                                                    <rect key="frame" x="16" y="8" width="361" height="154.33333333333334"/>
+                                                    <rect key="frame" x="16" y="8" width="361" height="100"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad banner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBl-BD-9gi">
-                                                            <rect key="frame" x="16" y="64" width="329" height="26.333333333333329"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                            <color key="textColor" name="kindaBlack"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9W-qo-FMx" customClass="GADBannerView">
+                                                            <rect key="frame" x="20.666666666666657" y="0.0" width="320" height="100"/>
+                                                            <color key="backgroundColor" name="kindaWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="100" id="eqE-44-d0H"/>
+                                                                <constraint firstAttribute="width" constant="320" id="faJ-K3-ZaV"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="xWhite"/>
+                                                    <color key="backgroundColor" name="kindaWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="dBl-BD-9gi" firstAttribute="leading" secondItem="aze-0v-qUQ" secondAttribute="leading" constant="16" id="CM9-oj-koC"/>
-                                                        <constraint firstItem="dBl-BD-9gi" firstAttribute="top" secondItem="aze-0v-qUQ" secondAttribute="top" constant="64" id="LZc-nw-hur"/>
-                                                        <constraint firstAttribute="trailing" secondItem="dBl-BD-9gi" secondAttribute="trailing" constant="16" id="Tb9-VN-pGV"/>
-                                                        <constraint firstAttribute="bottom" secondItem="dBl-BD-9gi" secondAttribute="bottom" constant="64" id="vlW-m9-nTL"/>
+                                                        <constraint firstItem="I9W-qo-FMx" firstAttribute="top" secondItem="aze-0v-qUQ" secondAttribute="top" id="0QG-bU-8lq"/>
+                                                        <constraint firstAttribute="bottom" secondItem="I9W-qo-FMx" secondAttribute="bottom" id="Nuo-RR-dqd"/>
+                                                        <constraint firstItem="I9W-qo-FMx" firstAttribute="centerX" secondItem="aze-0v-qUQ" secondAttribute="centerX" id="dRH-4K-jSK"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="16"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                            <real key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
-                                                            <real key="value" value="16"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" name="xdarkGray"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -384,7 +371,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="kindaWhite"/>
                                         <connections>
-                                            <outlet property="adTitleLabel" destination="dBl-BD-9gi" id="IEb-6f-YX2"/>
+                                            <outlet property="adBanner" destination="I9W-qo-FMx" id="ptk-01-JLD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

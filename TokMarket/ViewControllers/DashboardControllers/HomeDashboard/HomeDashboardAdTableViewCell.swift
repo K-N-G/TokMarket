@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class HomeDashboardAdTableViewCell: UITableViewCell {
-    @IBOutlet weak var adTitleLabel: UILabel!
+    @IBOutlet weak var adBanner: GADBannerView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

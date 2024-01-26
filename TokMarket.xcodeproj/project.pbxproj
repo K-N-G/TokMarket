@@ -28,6 +28,10 @@
 		B34507542B4E05B5003A0FD3 /* HomeHistoryInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34507532B4E05B5003A0FD3 /* HomeHistoryInfoTableViewCell.swift */; };
 		B34507572B4EBCE0003A0FD3 /* HistoryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34507562B4EBCE0003A0FD3 /* HistoryDetailsViewController.swift */; };
 		B34507592B4EC4CC003A0FD3 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34507582B4EC4CC003A0FD3 /* Array.swift */; };
+		B37601C42B6282EA005EB802 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = B37601C32B6282EA005EB802 /* GoogleMobileAds */; };
+		B37601C72B62B945005EB802 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B37601C62B62B945005EB802 /* FirebaseAnalytics */; };
+		B37601C92B62B985005EB802 /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37601C82B62B985005EB802 /* AdsManager.swift */; };
+		B37601CB2B62BA31005EB802 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B37601CA2B62BA31005EB802 /* GoogleService-Info.plist */; };
 		B379385E2B5136ED002FB715 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B379385D2B5136ED002FB715 /* TimerManager.swift */; };
 		B37938602B51CC9A002FB715 /* LatestPriceDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B379385F2B51CC9A002FB715 /* LatestPriceDate.swift */; };
 		B37938622B51F805002FB715 /* HomeSettingsTitleValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37938612B51F805002FB715 /* HomeSettingsTitleValueTableViewCell.swift */; };
@@ -128,6 +132,8 @@
 		B34507532B4E05B5003A0FD3 /* HomeHistoryInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHistoryInfoTableViewCell.swift; sourceTree = "<group>"; };
 		B34507562B4EBCE0003A0FD3 /* HistoryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailsViewController.swift; sourceTree = "<group>"; };
 		B34507582B4EC4CC003A0FD3 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		B37601C82B62B985005EB802 /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
+		B37601CA2B62BA31005EB802 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B379385D2B5136ED002FB715 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		B379385F2B51CC9A002FB715 /* LatestPriceDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestPriceDate.swift; sourceTree = "<group>"; };
 		B37938612B51F805002FB715 /* HomeSettingsTitleValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSettingsTitleValueTableViewCell.swift; sourceTree = "<group>"; };
@@ -169,6 +175,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B37601C72B62B945005EB802 /* FirebaseAnalytics in Frameworks */,
+				B37601C42B6282EA005EB802 /* GoogleMobileAds in Frameworks */,
 				B343FC312B4B36D800B98D45 /* RealmSwift in Frameworks */,
 				B343FC2F2B4B36D800B98D45 /* Realm in Frameworks */,
 				B343FC262B497E8600B98D45 /* JGProgressHUD in Frameworks */,
@@ -268,6 +276,7 @@
 		B3972D6D2B44B15A0005160D /* TokMarket */ = {
 			isa = PBXGroup;
 			children = (
+				B37601CA2B62BA31005EB802 /* GoogleService-Info.plist */,
 				B3972DDE2B485ADB0005160D /* Models */,
 				B3972DDD2B485ACE0005160D /* Extentions */,
 				B3972DDC2B485A8C0005160D /* Managers */,
@@ -334,6 +343,7 @@
 				B379385D2B5136ED002FB715 /* TimerManager.swift */,
 				B379386A2B52AAFF002FB715 /* Alerts.swift */,
 				B37938802B547447002FB715 /* ChartManager.swift */,
+				B37601C82B62B985005EB802 /* AdsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -465,6 +475,8 @@
 				B343FC252B497E8600B98D45 /* JGProgressHUD */,
 				B343FC2E2B4B36D800B98D45 /* Realm */,
 				B343FC302B4B36D800B98D45 /* RealmSwift */,
+				B37601C32B6282EA005EB802 /* GoogleMobileAds */,
+				B37601C62B62B945005EB802 /* FirebaseAnalytics */,
 			);
 			productName = TokMarket;
 			productReference = B3972D6B2B44B15A0005160D /* TokMarket.app */;
@@ -544,6 +556,8 @@
 				B343FC242B497E8600B98D45 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				B343FC272B497F7600B98D45 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				B31B9EDF2B5487DC007CD58E /* XCRemoteSwiftPackageReference "Charts" */,
+				B37601C22B6282E9005EB802 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				B37601C52B62B944005EB802 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = B3972D6C2B44B15A0005160D /* Products */;
 			projectDirPath = "";
@@ -591,6 +605,7 @@
 				B379387A2B52BF6E002FB715 /* Localizable.strings in Resources */,
 				B3972DE22B485C9E0005160D /* Settings.storyboard in Resources */,
 				B3972DEF2B4861970005160D /* Colors.xcassets in Resources */,
+				B37601CB2B62BA31005EB802 /* GoogleService-Info.plist in Resources */,
 				B3972DEB2B485F3F0005160D /* Dashboard.storyboard in Resources */,
 				B3972DE62B485CEA0005160D /* History.storyboard in Resources */,
 			);
@@ -645,6 +660,7 @@
 				B343FC372B4B58E600B98D45 /* HomeDashboardTableViewCell.swift in Sources */,
 				B37938812B547447002FB715 /* ChartManager.swift in Sources */,
 				B343FC392B4C172600B98D45 /* Double.swift in Sources */,
+				B37601C92B62B985005EB802 /* AdsManager.swift in Sources */,
 				B345074F2B4DD8F3003A0FD3 /* UserData.swift in Sources */,
 				B34507592B4EC4CC003A0FD3 /* Array.swift in Sources */,
 				B343FC2D2B4B33B700B98D45 /* PriceManager.swift in Sources */,
@@ -845,7 +861,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = P6Y2W9RQ54;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TokMarket/Info.plist;
@@ -861,6 +877,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = io.changex.app.TokMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -875,7 +892,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = P6Y2W9RQ54;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TokMarket/Info.plist;
@@ -891,6 +908,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = io.changex.app.TokMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1049,6 +1067,22 @@
 				kind = branch;
 			};
 		};
+		B37601C22B6282E9005EB802 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.14.0;
+			};
+		};
+		B37601C52B62B944005EB802 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.20.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1071,6 +1105,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B343FC272B497F7600B98D45 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		B37601C32B6282EA005EB802 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B37601C22B6282E9005EB802 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+		B37601C62B62B945005EB802 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B37601C52B62B944005EB802 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
