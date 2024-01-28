@@ -20,4 +20,16 @@ enum DefaultLanguage: String {
 enum MeasuringUnits: String {
     case kWh
     case mWh
+    case gWh
+    case tWh
+}
+
+enum StatisticsType: String {
+    case weeklyPrices = "weekly_statistics_prices"
+    case weeklyVolume = "weekly_statistics_volume"
+    case monthlyPrices = "monthly_statistics_prices"
+    case monthlyVolume = "monthly_statistics_volume"
+    case yearlyPrices = "yearly_statistics_prices"
+    case yearlyVolume = "yearly_statistics_volume"
+    
 }

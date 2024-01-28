@@ -99,6 +99,18 @@ final class CalculationManager {
         return Double(Double(prices / count).formatTwoSymbol)
     }
     
+    static func getAverageVolumeBy(energyPrice: EnergyPrice) -> Double? {
+        var count = 0.0
+        var totalVolume = 0.0
+        for hourlyInfo in energyPrice.hourlyData {
+            if let volume = hourlyInfo.data?.volume {
+                totalVolume += volume
+                count += 1.0
+            }
+        }
+        return Double(Double(totalVolume / count).formatTwoSymbol)
+    }
+    
     static func getTotalVolumeBy(energyPrice: EnergyPrice) -> Double? {
         var totalVolume = 0.0
         for hourlyInfo in energyPrice.hourlyData {

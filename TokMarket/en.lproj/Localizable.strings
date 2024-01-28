@@ -1,11 +1,13 @@
 "price_per" = "Price per";
 "price" = "Price";
+"prices" = "prices";
 "average_price" = "Average price";
 "off_peak_market" = "Off-peak market";
 "peak_market" = "Peak market";
 "min_price" = "Min price";
 "max_price" = "Max price";
 "period" = "Period";
+"average_volume" = "Average volume";
 "total_volume" = "Total volume";
 "volume" = "Volume";
 "ad_banner" = "Ad banner";
@@ -25,3 +27,19 @@
 "about" = "Аbout";
 "regional" = "Regional";
 "help" = "Help";
+"weekly_statistics_prices" = "Weekly price statistics";
+"weekly_statistics_volume" = "Weekly volume statistics";
+"monthly_statistics_prices" = "Monthly price statistics";
+"monthly_statistics_volume" = "Monthly volume statistics";
+"yearly_statistics_prices" = "Yearly price statistics";
+"yearly_statistics_volume" = "Yearly volume statistics";
+"daily_prices" = "Daily prices";
+"daily_prices" = "Daily volume";
+"weekly_prices" = "Weekly prices";
+"weekly_volume" = "Weekly volume";
+"monthly_prices" = "Monthly prices";
+"monthly_volume" = "Monthly volume";
+"yearly_prices" = "Yearly prices";
+"yearly_volume" = "Yearly volume";
+
+

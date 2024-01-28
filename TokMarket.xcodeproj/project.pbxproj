@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B31B9EEE2B548EBF007CD58E /* DGCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B31B9EE82B548DC8007CD58E /* DGCharts.framework */; };
 		B31B9EEF2B548EBF007CD58E /* DGCharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B31B9EE82B548DC8007CD58E /* DGCharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B3223E762B63FCF8005FAE38 /* HomeStatisticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3223E752B63FCF8005FAE38 /* HomeStatisticTableViewCell.swift */; };
 		B343FC232B4979F900B98D45 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B343FC222B4979F900B98D45 /* Alamofire */; };
 		B343FC262B497E8600B98D45 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B343FC252B497E8600B98D45 /* JGProgressHUD */; };
 		B343FC2B2B4B30F600B98D45 /* EnergyPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B343FC2A2B4B30F600B98D45 /* EnergyPrice.swift */; };
@@ -20,6 +21,7 @@
 		B343FC372B4B58E600B98D45 /* HomeDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B343FC362B4B58E600B98D45 /* HomeDashboardTableViewCell.swift */; };
 		B343FC392B4C172600B98D45 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B343FC382B4C172600B98D45 /* Double.swift */; };
 		B343FC3B2B4D6B9C00B98D45 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B343FC3A2B4D6B9C00B98D45 /* Notification.swift */; };
+		B344371D2B66B73000C706F3 /* StatisticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B344371C2B66B73000C706F3 /* StatisticsManager.swift */; };
 		B34507482B4D73CD003A0FD3 /* HomeDashboardStatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34507472B4D73CD003A0FD3 /* HomeDashboardStatisticsTableViewCell.swift */; };
 		B345074A2B4D9864003A0FD3 /* HomeDashboardAdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34507492B4D9864003A0FD3 /* HomeDashboardAdTableViewCell.swift */; };
 		B345074C2B4DA1D0003A0FD3 /* CalculationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B345074B2B4DA1CF003A0FD3 /* CalculationManager.swift */; };
@@ -117,6 +119,7 @@
 
 /* Begin PBXFileReference section */
 		B31B9EE22B548DC8007CD58E /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../Library/Developer/Xcode/DerivedData/TokMarket-dritttmttdgrwlgrijlppdhqfpsn/SourcePackages/checkouts/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
+		B3223E752B63FCF8005FAE38 /* HomeStatisticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStatisticTableViewCell.swift; sourceTree = "<group>"; };
 		B343FC2A2B4B30F600B98D45 /* EnergyPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyPrice.swift; sourceTree = "<group>"; };
 		B343FC2C2B4B33B700B98D45 /* PriceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceManager.swift; sourceTree = "<group>"; };
 		B343FC322B4B3CF000B98D45 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		B343FC362B4B58E600B98D45 /* HomeDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardTableViewCell.swift; sourceTree = "<group>"; };
 		B343FC382B4C172600B98D45 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		B343FC3A2B4D6B9C00B98D45 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		B344371C2B66B73000C706F3 /* StatisticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsManager.swift; sourceTree = "<group>"; };
 		B34507472B4D73CD003A0FD3 /* HomeDashboardStatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardStatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		B34507492B4D9864003A0FD3 /* HomeDashboardAdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDashboardAdTableViewCell.swift; sourceTree = "<group>"; };
 		B345074B2B4DA1CF003A0FD3 /* CalculationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationManager.swift; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 				B379386A2B52AAFF002FB715 /* Alerts.swift */,
 				B37938802B547447002FB715 /* ChartManager.swift */,
 				B37601C82B62B985005EB802 /* AdsManager.swift */,
+				B344371C2B66B73000C706F3 /* StatisticsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				B3972DFB2B4876D90005160D /* HomeStatisticsViewController.swift */,
+				B3223E752B63FCF8005FAE38 /* HomeStatisticTableViewCell.swift */,
 			);
 			path = HomeStatistics;
 			sourceTree = "<group>";
@@ -658,10 +664,12 @@
 				B3972DF12B4864E70005160D /* InitialViewController.swift in Sources */,
 				B343FC2B2B4B30F600B98D45 /* EnergyPrice.swift in Sources */,
 				B343FC372B4B58E600B98D45 /* HomeDashboardTableViewCell.swift in Sources */,
+				B3223E762B63FCF8005FAE38 /* HomeStatisticTableViewCell.swift in Sources */,
 				B37938812B547447002FB715 /* ChartManager.swift in Sources */,
 				B343FC392B4C172600B98D45 /* Double.swift in Sources */,
 				B37601C92B62B985005EB802 /* AdsManager.swift in Sources */,
 				B345074F2B4DD8F3003A0FD3 /* UserData.swift in Sources */,
+				B344371D2B66B73000C706F3 /* StatisticsManager.swift in Sources */,
 				B34507592B4EC4CC003A0FD3 /* Array.swift in Sources */,
 				B343FC2D2B4B33B700B98D45 /* PriceManager.swift in Sources */,
 				B34507542B4E05B5003A0FD3 /* HomeHistoryInfoTableViewCell.swift in Sources */,
@@ -861,7 +869,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = P6Y2W9RQ54;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TokMarket/Info.plist;
@@ -892,7 +900,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = P6Y2W9RQ54;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TokMarket/Info.plist;
