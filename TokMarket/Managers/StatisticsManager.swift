@@ -72,6 +72,17 @@ final class StatisticsManager {
         return yearlyData.reversed()
     }
     
+    static func daysInCurrentMonth() -> Int {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        if let monthRange = calendar.range(of: .day, in: .month, for: currentDate) {
+            let numberOfDays = monthRange.count
+            return numberOfDays
+        }
+
+        return 0
+    }
+    
     static func avaragePriceBy(energyPrices: [EnergyPrice]) -> Double {
         var totalPrice: Double = 0.0
         var count: Double = 0.0

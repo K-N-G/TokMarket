@@ -56,7 +56,7 @@
                                                             <color key="textColor" name="xdarkGray"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVK-Ll-RZk" customClass="LineChartView" customModule="DGCharts">
+                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVK-Ll-RZk" customClass="BarChartView" customModule="DGCharts">
                                                             <rect key="frame" x="0.0" y="54" width="361" height="128"/>
                                                             <color key="backgroundColor" name="xWhite"/>
                                                             <constraints>

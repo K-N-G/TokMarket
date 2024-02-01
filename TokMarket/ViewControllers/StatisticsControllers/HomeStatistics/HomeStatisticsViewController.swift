@@ -94,7 +94,7 @@ extension HomeStatisticsViewController: UITableViewDelegate, UITableViewDataSour
         switch row.type {
         case .statistics:
             if let homeStatisticTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeStatisticTableViewCell", for: indexPath) as? HomeStatisticTableViewCell {
-                ChartManager.setupStatisticLineChart(chartView: homeStatisticTableViewCell.chartView, energyPrices: row.energyPrices, statisticsType: row.statisticType)
+                ChartManager.setupStatisticBarChart(barChartView: homeStatisticTableViewCell.chartView, energyPrices: row.energyPrices, statisticsType: row.statisticType)
                 homeStatisticTableViewCell.titleLabel.text = row.statisticType.rawValue.localized
                 homeStatisticTableViewCell.leftView.isHidden = row.leftViewIsHidden
                 homeStatisticTableViewCell.leftLabel.text = row.leftTitle

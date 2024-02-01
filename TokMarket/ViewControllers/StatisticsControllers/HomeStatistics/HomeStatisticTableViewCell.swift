@@ -9,7 +9,7 @@ import UIKit
 import DGCharts
 
 class HomeStatisticTableViewCell: UITableViewCell {
-    @IBOutlet weak var chartView: LineChartView!
+    @IBOutlet weak var chartView: BarChartView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var leftLabel: UILabel!
