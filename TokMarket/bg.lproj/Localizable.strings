@@ -2,10 +2,13 @@
 "price" = "Цена";
 "prices" = "цени";
 "average_price" = "Средна цена";
+"base_market" = "Общ пазар";
 "off_peak_market" = "Ненатоварен пазар";
 "peak_market" = "Натоварен пазар";
 "min_price" = "Мин цена";
 "max_price" = "Макс цена";
+"min_volume" = "Мин обем";
+"max_volume" = "Мин обем";
 "period" = "Период";
 "average_volume" = "Среден обем";
 "total_volume" = "Общ обем";

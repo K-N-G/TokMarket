@@ -123,7 +123,10 @@ extension HomeStatisticsViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(indexPath.row)
+        if let statisticDetailsViewController = UIStoryboard.statistics.instantiateViewController(identifier: "StatisticDetailsViewController") as? StatisticDetailsViewController {
+            statisticDetailsViewController.statisticType = self.rows[indexPath.row].statisticType
+            self.navigationController?.pushViewController(statisticDetailsViewController, animated: true)
+        }
     }
 }
 

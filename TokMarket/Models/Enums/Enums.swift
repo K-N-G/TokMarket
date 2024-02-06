@@ -33,3 +33,9 @@ enum StatisticsType: String {
     case yearlyVolume = "yearly_statistics_volume"
     
 }
+
+enum MarketType: String {
+    case base = "base_market"
+    case peak = "off_peak_market"
+    case offPeak = "peak_market"
+}

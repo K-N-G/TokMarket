@@ -58,7 +58,7 @@ extension HomeHistoryViewController: UITableViewDelegate, UITableViewDataSource 
                let energyPrice = row.energyPrice {
                 homeHistoryInfoTableViewCell.deyLabel.text = energyPrice.date
                 homeHistoryInfoTableViewCell.avaregePriceLabel.text = "average_price".localized
-                homeHistoryInfoTableViewCell.avaregePriceValueLabel.text = "\(CalculationManager.getAveragePriceTodayBy(energyPrice: energyPrice) ?? 0.00)"
+                homeHistoryInfoTableViewCell.avaregePriceValueLabel.text = "\(CalculationManager.getAveragePriceBy(energyPrice: energyPrice) ?? 0.00)"
                 homeHistoryInfoTableViewCell.avaregePriceTypeLabel.text = " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.mWh.rawValue)"
                 homeHistoryInfoTableViewCell.totalVolumeLabel.text = "total_volume".localized
                 homeHistoryInfoTableViewCell.totalVolumeValueLabel.text = "\(CalculationManager.getTotalVolumeBy(energyPrice: energyPrice) ?? 0.00)"

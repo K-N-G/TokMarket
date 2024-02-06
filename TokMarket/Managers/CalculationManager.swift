@@ -11,12 +11,29 @@ final class CalculationManager {
     
     static let peakHours = ["08:00:00", "09:00:00", "10:00:00", "11:00:00", "12:00:00", "13:00:00", "14:00:00", "15:00:00", "16:00:00", "17:00:00", "18:00:00", "19:00:00"]
     
-    static func getMinPriceTodayBy(energyPrice: EnergyPrice) -> Double? {
+    static func getMinPriceTodayBy(energyPrice: EnergyPrice, marketType: MarketType = .base) -> Double? {
         var minPrice = 10000.0
         for hourlyData in energyPrice.hourlyData {
-            if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
-               minPrice > price {
-                minPrice = price
+            switch marketType {
+            case .base:
+                if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
+                   minPrice > price {
+                    minPrice = price
+                }
+            case .peak:
+                if (peakHours.contains(hourlyData.time)) {
+                    if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
+                       minPrice > price {
+                        minPrice = price
+                    }
+                }
+            case .offPeak:
+                if !(peakHours.contains(hourlyData.time)) {
+                    if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
+                       minPrice > price {
+                        minPrice = price
+                    }
+                }
             }
         }
         return Double(minPrice.formatTwoSymbol)
@@ -35,15 +52,88 @@ final class CalculationManager {
         return minHourlyData
     }
     
-    static func getMaxPriceTodayBy(energyPrice: EnergyPrice) -> Double? {
+    static func getMinVolumeTodayBy(energyPrice: EnergyPrice, marketType: MarketType = .base) -> Double? {
+        var minVolume = 100000.0
+        for hourlyData in energyPrice.hourlyData {
+            switch marketType {
+            case .base:
+                if let volume = hourlyData.data?.volume,
+                   minVolume > volume {
+                    minVolume = volume
+                }
+            case .peak:
+                if (peakHours.contains(hourlyData.time)) {
+                    if let volume = hourlyData.data?.volume,
+                       minVolume > volume {
+                        minVolume = volume
+                    }
+                }
+            case .offPeak:
+                if !(peakHours.contains(hourlyData.time)) {
+                    if let volume = hourlyData.data?.volume,
+                       minVolume > volume {
+                        minVolume = volume
+                    }
+                }
+            }
+        }
+        return Double(minVolume.formatTwoSymbol)
+    }
+    
+    static func getMaxPriceTodayBy(energyPrice: EnergyPrice, marketType: MarketType = .base) -> Double? {
         var maxPrice = -100.0
         for hourlyData in energyPrice.hourlyData {
-            if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
-               maxPrice < price {
-                maxPrice = price
+            switch marketType {
+            case .base:
+                if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
+                   maxPrice < price {
+                    maxPrice = price
+                }
+            case .peak:
+                if (peakHours.contains(hourlyData.time)) {
+                    if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
+                       maxPrice < price {
+                        maxPrice = price
+                    }
+                }
+            case .offPeak:
+                if !(peakHours.contains(hourlyData.time)) {
+                    if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
+                       maxPrice < price {
+                        maxPrice = price
+                    }
+                }
             }
         }
         return Double(maxPrice.formatTwoSymbol)
+    }
+    
+    static func getMaxVolumeTodayBy(energyPrice: EnergyPrice, marketType: MarketType = .base) -> Double? {
+        var maxVolume =  -100.0
+        for hourlyData in energyPrice.hourlyData {
+            switch marketType {
+            case .base:
+                if let volume = hourlyData.data?.volume,
+                   maxVolume < volume {
+                    maxVolume = volume
+                }
+            case .peak:
+                if (peakHours.contains(hourlyData.time)) {
+                    if let volume = hourlyData.data?.volume,
+                       maxVolume > volume {
+                        maxVolume = volume
+                    }
+                }
+            case .offPeak:
+                if !(peakHours.contains(hourlyData.time)) {
+                    if let volume = hourlyData.data?.volume,
+                       maxVolume > volume {
+                        maxVolume = volume
+                    }
+                }
+            }
+        }
+        return Double(maxVolume.formatTwoSymbol)
     }
     
     static func getMaxHourlyDataBy(energyPrice: EnergyPrice) -> HourlyData? {
@@ -59,64 +149,87 @@ final class CalculationManager {
         return maxHourlyData
     }
     
-    static func getAveragePriceTodayBy(energyPrice: EnergyPrice) -> Double? {
+    static func getAveragePriceBy(energyPrice: EnergyPrice, marketType: MarketType = .base) -> Double? {
         var count = 0.0
         var prices = 0.0
         for hourlyData in energyPrice.hourlyData {
-            if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData) {
-                count += 1.0
-                prices += price
-            }
-        }
-        return Double(Double(prices / count).formatTwoSymbol)
-    }
-    
-    static func getAveragePricePeakBy(energyPrice: EnergyPrice) -> Double? {
-        var count = 0.0
-        var prices = 0.0
-        for hourlyData in energyPrice.hourlyData {
-            if peakHours.contains(hourlyData.time) {
+            switch marketType {
+            case .base:
                 if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData) {
                     count += 1.0
                     prices += price
                 }
-            }
-        }
-        return Double(Double(prices / count).formatTwoSymbol)
-    }
-    
-    static func getAveragePriceOffPeakBy(energyPrice: EnergyPrice) -> Double? {
-        var count = 0.0
-        var prices = 0.0
-        for hourlyData in energyPrice.hourlyData {
-            if !(peakHours.contains(hourlyData.time)) {
-                if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData) {
-                    count += 1.0
-                    prices += price
+            case .peak:
+                if peakHours.contains(hourlyData.time) {
+                    if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData) {
+                        count += 1.0
+                        prices += price
+                    }
+                }
+            case .offPeak:
+                if !(peakHours.contains(hourlyData.time)) {
+                    if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData) {
+                        count += 1.0
+                        prices += price
+                    }
                 }
             }
+            
+            
         }
         return Double(Double(prices / count).formatTwoSymbol)
     }
     
-    static func getAverageVolumeBy(energyPrice: EnergyPrice) -> Double? {
+    static func getAverageVolumeBy(energyPrice: EnergyPrice, marketType: MarketType = .base) -> Double? {
         var count = 0.0
         var totalVolume = 0.0
-        for hourlyInfo in energyPrice.hourlyData {
-            if let volume = hourlyInfo.data?.volume {
-                totalVolume += volume
-                count += 1.0
+        for hourlyData in energyPrice.hourlyData {
+            switch marketType {
+            case .base:
+                if let volume = hourlyData.data?.volume {
+                    totalVolume += volume
+                    count += 1.0
+                }
+            case .peak:
+                if peakHours.contains(hourlyData.time) {
+                    if let volume = hourlyData.data?.volume {
+                        totalVolume += volume
+                        count += 1.0
+                    }
+                }
+            case .offPeak:
+                if !(peakHours.contains(hourlyData.time)) {
+                    if let volume = hourlyData.data?.volume {
+                        totalVolume += volume
+                        count += 1.0
+                    }
+                }
             }
         }
         return Double(Double(totalVolume / count).formatTwoSymbol)
     }
     
-    static func getTotalVolumeBy(energyPrice: EnergyPrice) -> Double? {
+    static func getTotalVolumeBy(energyPrice: EnergyPrice, marketType: MarketType = .base) -> Double? {
         var totalVolume = 0.0
-        for hourlyInfo in energyPrice.hourlyData {
-            if let volume = hourlyInfo.data?.volume {
-                totalVolume += volume
-            }
+        for hourlyData in energyPrice.hourlyData {
+            switch marketType {
+            case .base:
+                if let volume = hourlyData.data?.volume {
+                    totalVolume += volume
+                }
+            case .peak:
+                if (peakHours.contains(hourlyData.time)) {
+                    if let volume = hourlyData.data?.volume {
+                        totalVolume += volume
+                    }
+                }
+            case .offPeak:
+                if !(peakHours.contains(hourlyData.time)) {
+                    if let volume = hourlyData.data?.volume {
+                        totalVolume += volume
+                    }
+                }
+            } 
         }
         return Double(Double(totalVolume).formatTwoSymbol)
     }

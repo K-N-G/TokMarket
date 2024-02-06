@@ -54,18 +54,18 @@ final class ChartManager {
         chartView.chartDescription.text = "daily_prices".localized
     }
     
-    static func setupStatisticBarChart(barChartView: BarChartView, energyPrices: [EnergyPrice], statisticsType: StatisticsType) {
+    static func setupStatisticBarChart(barChartView: BarChartView, energyPrices: [EnergyPrice], statisticsType: StatisticsType, marketType: MarketType = .base) {
         var entries: [BarChartDataEntry] = []
         var count = 0.0
         for energyPrice in energyPrices {
             switch statisticsType {
             case .weeklyPrices, .monthlyPrices, .yearlyPrices:
-                if let averagePrice = CalculationManager.getAveragePriceTodayBy(energyPrice: energyPrice) {
+                if let averagePrice = CalculationManager.getAveragePriceBy(energyPrice: energyPrice, marketType: marketType) {
                     entries.append(BarChartDataEntry(x: count, y: averagePrice))
                     count += 1.0
                 }
             case .weeklyVolume, .monthlyVolume, .yearlyVolume:
-                if let averageVolume = CalculationManager.getAverageVolumeBy(energyPrice: energyPrice) {
+                if let averageVolume = CalculationManager.getAverageVolumeBy(energyPrice: energyPrice, marketType: marketType) {
                     entries.append(BarChartDataEntry(x: count, y: averageVolume))
                     count += 1.0
                 }
@@ -76,11 +76,11 @@ final class ChartManager {
         switch statisticsType {
         case .weeklyPrices, .weeklyVolume:
             for i in Int(count)..<7 {
-                entries.append(BarChartDataEntry(x: Double(i), y: 1.0))
+                entries.append(BarChartDataEntry(x: Double(i), y: 0.0))
             }
         case .monthlyPrices, .monthlyVolume:
             for i in Int(count)..<StatisticsManager.daysInCurrentMonth() {
-                entries.append(BarChartDataEntry(x: Double(i), y: 1.0))
+                entries.append(BarChartDataEntry(x: Double(i), y: 0.0))
             }
         default:
             break
@@ -121,6 +121,8 @@ final class ChartManager {
         barChartView.xAxis.enabled = false
         barChartView.rightAxis.enabled = false
         barChartView.animate(yAxisDuration: TimeInterval(2))
+        barChartView.scaleXEnabled = false
+        barChartView.scaleYEnabled = false
     }
 
 }

@@ -2,10 +2,13 @@
 "price" = "Price";
 "prices" = "prices";
 "average_price" = "Average price";
+"base_market" = "Общ пазар";
 "off_peak_market" = "Off-peak market";
 "peak_market" = "Peak market";
 "min_price" = "Min price";
 "max_price" = "Max price";
+"min_volume" = "Min volume";
+"max_volume" = "Max volume";
 "period" = "Period";
 "average_volume" = "Average volume";
 "total_volume" = "Total volume";

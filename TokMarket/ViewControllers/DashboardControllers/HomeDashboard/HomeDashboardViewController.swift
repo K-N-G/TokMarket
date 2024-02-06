@@ -42,6 +42,7 @@ class HomeDashboardViewController: UIViewController {
     func setupScreen() {
         guard let todayEnergyPrice = self.todayEnergyPrice,
         let hourlyData = LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice) else {
+            TimerManager.fetchEnergyPrices()
             return
         }
         ChartManager.setupLineChart(chartView: chartView, energyPrice: todayEnergyPrice)
@@ -56,17 +57,17 @@ class HomeDashboardViewController: UIViewController {
                          leftValueType: " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.kWh.rawValue)",
                          leftdescriptionIsVisible: true,
                          rightTitle: "average_price".localized,
-                         rightValue: "\(CalculationManager.getAveragePriceTodayBy(energyPrice: todayEnergyPrice) ?? 0.00)",
+                         rightValue: "\(CalculationManager.getAveragePriceBy(energyPrice: todayEnergyPrice) ?? 0.00)",
                          rightValueType: " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.mWh.rawValue)",
                          rightdescriptionIsVisible: true),
             DashboardRow(titleName: "",
                          type: .statistics,
                          leftTitle: "off_peak_market".localized,
-                         leftValue: "\(CalculationManager.getAveragePriceOffPeakBy(energyPrice: todayEnergyPrice) ?? 0.00)",
+                         leftValue: "\(CalculationManager.getAveragePriceBy(energyPrice: todayEnergyPrice, marketType: .offPeak) ?? 0.00)",
                          leftValueType: " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.mWh.rawValue)",
                          leftdescriptionIsVisible: true,
                          rightTitle: "peak_market".localized,
-                         rightValue: "\(CalculationManager.getAveragePricePeakBy(energyPrice: todayEnergyPrice) ?? 0.00)",
+                         rightValue: "\(CalculationManager.getAveragePriceBy(energyPrice: todayEnergyPrice, marketType: .peak) ?? 0.00)",
                          rightValueType: " \(UserData.defaultCurrency.rawValue)/\(MeasuringUnits.mWh.rawValue)",
                          rightdescriptionIsVisible: true),
             DashboardRow(titleName: "",
@@ -88,6 +89,16 @@ class HomeDashboardViewController: UIViewController {
                          rightTitle: "volume".localized,
                          rightValue: "\(LocalDataManager.getCurrentHourInfoBy(energyPrice: todayEnergyPrice)?.volume ?? 0.00)",
                          rightValueType: " \(MeasuringUnits.mWh.rawValue)",
+                         rightdescriptionIsVisible: false),
+            DashboardRow(titleName: "",
+                         type: .statistics,
+                         leftTitle: "min_volume".localized,
+                         leftValue: "\(CalculationManager.getMinVolumeTodayBy(energyPrice: todayEnergyPrice) ?? 0.00)",
+                         leftValueType: "\(MeasuringUnits.mWh.rawValue)",
+                         leftdescriptionIsVisible: false,
+                         rightTitle: "max_volume".localized,
+                         rightValue: "\(CalculationManager.getMaxVolumeTodayBy(energyPrice: todayEnergyPrice) ?? 0.00)",
+                         rightValueType: "\(MeasuringUnits.mWh.rawValue)",
                          rightdescriptionIsVisible: false),
             DashboardRow(titleName: "ad_banner".localized, type: .ad)
             
@@ -157,7 +168,6 @@ extension HomeDashboardViewController: UITableViewDelegate, UITableViewDataSourc
                 homeDashboardAdTableViewCell.adBanner.load(GADRequest())
                 return homeDashboardAdTableViewCell
             }
-            break
         }
         return UITableViewCell()
     }

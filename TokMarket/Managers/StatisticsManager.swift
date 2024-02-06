@@ -83,11 +83,11 @@ final class StatisticsManager {
         return 0
     }
     
-    static func avaragePriceBy(energyPrices: [EnergyPrice]) -> Double {
+    static func avaragePriceBy(energyPrices: [EnergyPrice], marketType: MarketType = .base) -> Double {
         var totalPrice: Double = 0.0
         var count: Double = 0.0
         for energyPrice in energyPrices {
-            if let avaragePrice = CalculationManager.getAveragePriceTodayBy(energyPrice: energyPrice) {
+            if let avaragePrice = CalculationManager.getAveragePriceBy(energyPrice: energyPrice, marketType: marketType) {
                 totalPrice += avaragePrice
                 count += 1.0
             }
@@ -100,11 +100,11 @@ final class StatisticsManager {
         }
     }
     
-    static func avarageVolumeBy(energyPrices: [EnergyPrice]) -> Double {
+    static func avarageVolumeBy(energyPrices: [EnergyPrice], marketType: MarketType = .base) -> Double {
         var totalVolume: Double = 0.0
         var count: Double = 0.0
         for energyPrice in energyPrices {
-            if let volume = CalculationManager.getAverageVolumeBy(energyPrice: energyPrice) {
+            if let volume = CalculationManager.getAverageVolumeBy(energyPrice: energyPrice, marketType: marketType) {
                 totalVolume += volume
                 count += 1.0
             }
@@ -118,11 +118,11 @@ final class StatisticsManager {
         }
     }
     
-    static func totalVolumeBy(energyPrices: [EnergyPrice], measuringUnits: MeasuringUnits) -> Double {
+    static func totalVolumeBy(energyPrices: [EnergyPrice], measuringUnits: MeasuringUnits, marketType: MarketType = .base) -> Double {
         var totalVolume: Double = 0.0
         
         for energyPrice in energyPrices {
-            if let volume = CalculationManager.getTotalVolumeBy(energyPrice: energyPrice) {
+            if let volume = CalculationManager.getTotalVolumeBy(energyPrice: energyPrice, marketType: marketType) {
                 totalVolume += volume
             }
         }
@@ -136,5 +136,49 @@ final class StatisticsManager {
         case .tWh:
             return totalVolume / 1000000
         }
+    }
+    
+    static func minPriceBy(energyPrices: [EnergyPrice], marketType: MarketType = .base) -> Double {
+        var minPrice = 10000.0
+        for energyPrice in energyPrices {
+            if let price = CalculationManager.getMinPriceTodayBy(energyPrice: energyPrice, marketType: marketType),
+               minPrice > price {
+                minPrice = price
+            }
+        }
+        return minPrice
+    }
+    
+    static func minVolumeBy(energyPrices: [EnergyPrice], marketType: MarketType = .base) -> Double {
+        var minVolume = 100000.0
+        for energyPrice in energyPrices {
+            if let volume = CalculationManager.getMinVolumeTodayBy(energyPrice: energyPrice, marketType: marketType),
+               minVolume > volume {
+                minVolume = volume
+            }
+        }
+        return minVolume
+    }
+    
+    static func maxPriceBy(energyPrices: [EnergyPrice], marketType: MarketType = .base) -> Double {
+        var maxPrice = -100.0
+        for energyPrice in energyPrices {
+            if let price = CalculationManager.getMaxPriceTodayBy(energyPrice: energyPrice, marketType: marketType),
+                maxPrice < price {
+                 maxPrice = price
+            }
+        }
+        return maxPrice
+    }
+    
+    static func maxVolumeBy(energyPrices: [EnergyPrice], marketType: MarketType = .base) -> Double {
+        var maxVolume = -100.0
+        for energyPrice in energyPrices {
+            if let volume = CalculationManager.getMinVolumeTodayBy(energyPrice: energyPrice, marketType: marketType),
+               maxVolume < volume {
+                maxVolume = volume
+            }
+        }
+        return maxVolume
     }
 }
