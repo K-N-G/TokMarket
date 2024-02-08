@@ -28,7 +28,8 @@ class HomeStatisticsViewController: UIViewController {
         let yearlyData = StatisticsManager.fetchYearlyData()
         
         self.rows = [
-            StatisticsRow(type: .statistics, 
+            StatisticsRow(type: .customStatistics),
+            StatisticsRow(type: .statistics,
                           statisticType: .weeklyPrices,
                           leftTitle: "average_price".localized,
                           leftValue: StatisticsManager.avaragePriceBy(energyPrices: weeklyData).formatTwoSymbol,
@@ -107,6 +108,17 @@ extension HomeStatisticsViewController: UITableViewDelegate, UITableViewDataSour
                 
                 return homeStatisticTableViewCell
             }
+            
+        case .customStatistics:
+            if let customStatisticsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "CustomStatisticsTableViewCell", for: indexPath) as? CustomStatisticsTableViewCell {
+                customStatisticsTableViewCell.titleLabel.text = "custom_statistics_title".localized
+                customStatisticsTableViewCell.descriptionLabel.text = "custom_statistics_description".localized
+                if let energyPrice = LocalDataManager.fetchEnergyPrice() {
+                    ChartManager.setupLineChart(chartView: customStatisticsTableViewCell.chartView, energyPrice: energyPrice)
+                }
+                
+                return customStatisticsTableViewCell
+            }
         case .ad:
             if let homeDashboardAdTableViewCell = tableView.dequeueReusableCell(withIdentifier: "HomeDashboardAdTableViewCell", for: indexPath) as? HomeDashboardAdTableViewCell {
                 homeDashboardAdTableViewCell.adBanner.adUnitID = AdsManager.adUnitID
@@ -123,9 +135,17 @@ extension HomeStatisticsViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let statisticDetailsViewController = UIStoryboard.statistics.instantiateViewController(identifier: "StatisticDetailsViewController") as? StatisticDetailsViewController {
-            statisticDetailsViewController.statisticType = self.rows[indexPath.row].statisticType
-            self.navigationController?.pushViewController(statisticDetailsViewController, animated: true)
+        let row = self.rows[indexPath.row]
+        switch row.type {
+        case .customStatistics:
+            if let customStatisticsViewController = UIStoryboard.statistics.instantiateViewController(identifier: "CustomStatisticsViewController") as? CustomStatisticsViewController {
+                self.navigationController?.pushViewController(customStatisticsViewController, animated: true)
+            }
+        default:
+            if let statisticDetailsViewController = UIStoryboard.statistics.instantiateViewController(identifier: "StatisticDetailsViewController") as? StatisticDetailsViewController {
+                statisticDetailsViewController.statisticType = row.statisticType
+                self.navigationController?.pushViewController(statisticDetailsViewController, animated: true)
+            }
         }
     }
 }
@@ -134,6 +154,7 @@ extension HomeStatisticsViewController {
     struct StatisticsRow {
         enum RowType {
             case statistics
+            case customStatistics
             case ad
         }
 

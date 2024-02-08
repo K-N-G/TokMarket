@@ -5,6 +5,8 @@
 "base_market" = "Общ пазар";
 "off_peak_market" = "Ненатоварен пазар";
 "peak_market" = "Натоварен пазар";
+"off_peak" = "Ненатоварен";
+"peak" = "Натоварен";
 "min_price" = "Мин цена";
 "max_price" = "Макс цена";
 "min_volume" = "Мин обем";
@@ -37,10 +39,15 @@
 "yearly_statistics_prices" = "Годишна статистика на цените";
 "yearly_statistics_volume" = "Годишна статистика на обем";
 "daily_prices" = "Дневни цени";
-"daily_prices" = "Дневен обем";
+"daily_volume" = "Дневен обем";
 "weekly_prices" = "Седмични цени";
 "weekly_volume" = "Седмичен обем";
 "monthly_prices" = "Месечни цени";
 "monthly_volume" = "Месечен обем";
 "yearly_prices" = "Годишни цени";
 "yearly_volume" = "Годишен обем";
+"weekly" = "Седмични";
+"monthly" = "Месечни";
+"yearly" = "Годишни";
+"custom_statistics_title" = "Персонализирана статистика";
+"custom_statistics_description" = "Можете да зададете свой собствен период от време за пиков и извън пиков пазар и да видите статистиката.";

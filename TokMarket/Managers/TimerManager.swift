@@ -54,7 +54,7 @@ final class TimerManager {
         })
     }
     
-    static func fetchEnergyPrices() {
+    static private func fetchEnergyPrices() {
         PriceManager.fetchEnergyPrices(completion: {error in
             NotificationCenter.default.post(name: .updateScreen, object: nil)
         })

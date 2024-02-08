@@ -9,8 +9,6 @@ import Foundation
 
 final class CalculationManager {
     
-    static let peakHours = ["08:00:00", "09:00:00", "10:00:00", "11:00:00", "12:00:00", "13:00:00", "14:00:00", "15:00:00", "16:00:00", "17:00:00", "18:00:00", "19:00:00"]
-    
     static func getMinPriceTodayBy(energyPrice: EnergyPrice, marketType: MarketType = .base) -> Double? {
         var minPrice = 10000.0
         for hourlyData in energyPrice.hourlyData {
@@ -21,14 +19,14 @@ final class CalculationManager {
                     minPrice = price
                 }
             case .peak:
-                if (peakHours.contains(hourlyData.time)) {
+                if (UserData.peakHours.contains(hourlyData.time)) {
                     if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
                        minPrice > price {
                         minPrice = price
                     }
                 }
             case .offPeak:
-                if !(peakHours.contains(hourlyData.time)) {
+                if !(UserData.peakHours.contains(hourlyData.time)) {
                     if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
                        minPrice > price {
                         minPrice = price
@@ -62,14 +60,14 @@ final class CalculationManager {
                     minVolume = volume
                 }
             case .peak:
-                if (peakHours.contains(hourlyData.time)) {
+                if (UserData.peakHours.contains(hourlyData.time)) {
                     if let volume = hourlyData.data?.volume,
                        minVolume > volume {
                         minVolume = volume
                     }
                 }
             case .offPeak:
-                if !(peakHours.contains(hourlyData.time)) {
+                if !(UserData.peakHours.contains(hourlyData.time)) {
                     if let volume = hourlyData.data?.volume,
                        minVolume > volume {
                         minVolume = volume
@@ -90,14 +88,14 @@ final class CalculationManager {
                     maxPrice = price
                 }
             case .peak:
-                if (peakHours.contains(hourlyData.time)) {
+                if (UserData.peakHours.contains(hourlyData.time)) {
                     if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
                        maxPrice < price {
                         maxPrice = price
                     }
                 }
             case .offPeak:
-                if !(peakHours.contains(hourlyData.time)) {
+                if !(UserData.peakHours.contains(hourlyData.time)) {
                     if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData),
                        maxPrice < price {
                         maxPrice = price
@@ -118,14 +116,14 @@ final class CalculationManager {
                     maxVolume = volume
                 }
             case .peak:
-                if (peakHours.contains(hourlyData.time)) {
+                if (UserData.peakHours.contains(hourlyData.time)) {
                     if let volume = hourlyData.data?.volume,
                        maxVolume > volume {
                         maxVolume = volume
                     }
                 }
             case .offPeak:
-                if !(peakHours.contains(hourlyData.time)) {
+                if !(UserData.peakHours.contains(hourlyData.time)) {
                     if let volume = hourlyData.data?.volume,
                        maxVolume > volume {
                         maxVolume = volume
@@ -160,14 +158,14 @@ final class CalculationManager {
                     prices += price
                 }
             case .peak:
-                if peakHours.contains(hourlyData.time) {
+                if UserData.peakHours.contains(hourlyData.time) {
                     if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData) {
                         count += 1.0
                         prices += price
                     }
                 }
             case .offPeak:
-                if !(peakHours.contains(hourlyData.time)) {
+                if !(UserData.peakHours.contains(hourlyData.time)) {
                     if let price = LocalDataManager.getPriceBy(hourlyData: hourlyData) {
                         count += 1.0
                         prices += price
@@ -191,14 +189,14 @@ final class CalculationManager {
                     count += 1.0
                 }
             case .peak:
-                if peakHours.contains(hourlyData.time) {
+                if UserData.peakHours.contains(hourlyData.time) {
                     if let volume = hourlyData.data?.volume {
                         totalVolume += volume
                         count += 1.0
                     }
                 }
             case .offPeak:
-                if !(peakHours.contains(hourlyData.time)) {
+                if !(UserData.peakHours.contains(hourlyData.time)) {
                     if let volume = hourlyData.data?.volume {
                         totalVolume += volume
                         count += 1.0
@@ -218,13 +216,13 @@ final class CalculationManager {
                     totalVolume += volume
                 }
             case .peak:
-                if (peakHours.contains(hourlyData.time)) {
+                if (UserData.peakHours.contains(hourlyData.time)) {
                     if let volume = hourlyData.data?.volume {
                         totalVolume += volume
                     }
                 }
             case .offPeak:
-                if !(peakHours.contains(hourlyData.time)) {
+                if !(UserData.peakHours.contains(hourlyData.time)) {
                     if let volume = hourlyData.data?.volume {
                         totalVolume += volume
                     }

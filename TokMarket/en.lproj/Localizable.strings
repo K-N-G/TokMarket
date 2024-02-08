@@ -5,6 +5,8 @@
 "base_market" = "Общ пазар";
 "off_peak_market" = "Off-peak market";
 "peak_market" = "Peak market";
+"off_peak" = "Off-peak";
+"peak" = "Peak";
 "min_price" = "Min price";
 "max_price" = "Max price";
 "min_volume" = "Min volume";
@@ -37,12 +39,17 @@
 "yearly_statistics_prices" = "Yearly price statistics";
 "yearly_statistics_volume" = "Yearly volume statistics";
 "daily_prices" = "Daily prices";
-"daily_prices" = "Daily volume";
+"daily_volume" = "Daily volume";
 "weekly_prices" = "Weekly prices";
 "weekly_volume" = "Weekly volume";
 "monthly_prices" = "Monthly prices";
 "monthly_volume" = "Monthly volume";
 "yearly_prices" = "Yearly prices";
 "yearly_volume" = "Yearly volume";
+"weekly" = "Weekly";
+"monthly" = "Monthly";
+"yearly" = "Yearly";
+"custom_statistics_title" = "Custom statistics";
+"custom_statistics_description" = "You can set your own time period for peak and off-peak market and view the statistics.";
 
 

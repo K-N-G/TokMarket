@@ -26,7 +26,6 @@ class HomeDashboardViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.todayEnergyPrice = LocalDataManager.fetchEnergyPrice()
         setupScreen()
     }
     
@@ -40,9 +39,9 @@ class HomeDashboardViewController: UIViewController {
     
     
     func setupScreen() {
+        self.todayEnergyPrice = LocalDataManager.fetchEnergyPrice()
         guard let todayEnergyPrice = self.todayEnergyPrice,
-        let hourlyData = LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice) else {
-            TimerManager.fetchEnergyPrices()
+              let hourlyData = LocalDataManager.getCurrentHourDataBy(energyPrice: todayEnergyPrice) else {
             return
         }
         ChartManager.setupLineChart(chartView: chartView, energyPrice: todayEnergyPrice)
